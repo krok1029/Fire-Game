@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ButtonController : MonoBehaviour {
-    public GameObject mesh;
+    public GameObject build;
+    public GameObject buildList;
     public void appear()
     {
-        mesh.SetActive(true);
+        buildList.SetActive(true);
+        build.SetActive(true);
     }
     public void disappear()
     {
-        mesh.SetActive(false);
+        buildList.SetActive(false);
+        build.SetActive(false);
+
     }
     }
 
