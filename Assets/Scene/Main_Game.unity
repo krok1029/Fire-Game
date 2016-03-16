@@ -1583,9 +1583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'BUILD
-
-'
+  m_Text: Map
 --- !u!222 &1333457396
 CanvasRenderer:
   m_ObjectHideFlags: 0
