@@ -41,7 +41,7 @@ public class chooseObject : MonoBehaviour {
         {
             Debug.Log(targetingLayerMask.value);
             Debug.Log(targetTransform.name);
-
+          
         }
     }
 }

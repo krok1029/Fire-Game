@@ -11,6 +11,7 @@ public class MouseClickMove : MonoBehaviour
 
     void Update()
     {
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);////(1)
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
@@ -35,4 +36,5 @@ public class MouseClickMove : MonoBehaviour
             model.transform.position = Vector3.MoveTowards(model.transform.position, target, step);////(6)
         }
     }
+    
 }
