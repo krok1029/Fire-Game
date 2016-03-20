@@ -43,7 +43,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9a6c731140a4fb742852abe2ebc11e7b, type: 2}
+  - {fileID: 2100000, guid: 5e6a434e683446848b5bcc48f1d51bf3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 19525028}
-  target: {fileID: 0}
+  target: {fileID: 457072, guid: e40261d345cb8dd4f8e440b126446cc1, type: 2}
 --- !u!136 &13676336
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -133,7 +133,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e6a434e683446848b5bcc48f1d51bf3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 457072, guid: e40261d345cb8dd4f8e440b126446cc1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133522}
