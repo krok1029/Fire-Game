@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &102206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 443476}
+  - 20: {fileID: 2096468}
+  - 92: {fileID: 9229994}
+  - 124: {fileID: 12441638}
+  - 81: {fileID: 8170132}
+  - 114: {fileID: 11406774}
+  - 114: {fileID: 11487762}
+  - 114: {fileID: 11430896}
+  - 114: {fileID: 11404100}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &443476
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_LocalRotation: {x: 0.6087615, y: 0, z: 0, w: 0.7933533}
+  m_LocalPosition: {x: 0, y: 85.2, z: -31.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!20 &2096468
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!81 &8170132
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+--- !u!92 &9229994
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+--- !u!114 &11404100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3d5086827d13349beeea16abaddc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetingLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &11406774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65684ecf11acf024b8869e2c4640ced5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  build: {fileID: 155330, guid: 53c655ab2149c3644badaf285ca55b9a, type: 2}
+  buildList: {fileID: 103992, guid: 61ce6e11f2e831d488c6db22667592f8, type: 2}
+  speed: 20
+  building: {fileID: 414598, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
+--- !u!114 &11430896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9cc536ddc799e4baa1b953ae2a6da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &11487762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87993e6303f45cb4f860a9e657361f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 0}
+  madeObject: {fileID: 131550, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
+--- !u!124 &12441638
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: madeObject
+      value: 
+      objectReference: {fileID: 131550, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
+    - target: {fileID: 0}
+      propertyPath: building
+      value: 
+      objectReference: {fileID: 414598, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
+    - target: {fileID: 0}
+      propertyPath: buildList
+      value: 
+      objectReference: {fileID: 103992, guid: 61ce6e11f2e831d488c6db22667592f8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: build
+      value: 
+      objectReference: {fileID: 155330, guid: 53c655ab2149c3644badaf285ca55b9a, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 102206}
+  m_IsPrefabParent: 1

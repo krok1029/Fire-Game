@@ -3,8 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class dragObject : MonoBehaviour {
-    public float speed = 20;
-    public Transform building;
+    public float speed = 15;
+    public Transform building ;
     public Button backbutton;
     public Button buildbutton;
     bool i; 
@@ -25,7 +25,7 @@ public class dragObject : MonoBehaviour {
         }
         if (i == false)
         {
-            speed = 20;
+            speed = 15;
         }
         Debug.Log(speed);
 
