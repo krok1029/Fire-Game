@@ -7,6 +7,7 @@ public class dragObject : MonoBehaviour {
     public Transform building ;
     public Button backbutton;
     public Button buildbutton;
+    public Button Lockbutton;
     bool i; 
 
 
@@ -17,8 +18,8 @@ public class dragObject : MonoBehaviour {
 
 
         backbutton.onClick.AddListener(click1);
-        buildbutton.onClick.AddListener(click2); 
-       
+        buildbutton.onClick.AddListener(click2);
+        Lockbutton.onClick.AddListener(click1);
         if (i==true)
         {
             speed = 0;

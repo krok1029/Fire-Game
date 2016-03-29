@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102206}
   m_LocalRotation: {x: 0.6087615, y: 0, z: 0, w: 0.7933533}
-  m_LocalPosition: {x: 0, y: 85.2, z: -31.5}
+  m_LocalPosition: {x: 0, y: 102.06, z: -31.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,7 +44,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0.16268381, g: 0.24525121, b: 0.375, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65684ecf11acf024b8869e2c4640ced5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  build: {fileID: 155330, guid: 53c655ab2149c3644badaf285ca55b9a, type: 2}
-  buildList: {fileID: 103992, guid: 61ce6e11f2e831d488c6db22667592f8, type: 2}
+  build: {fileID: 0}
+  buildList: {fileID: 0}
   speed: 20
   building: {fileID: 414598, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
 --- !u!114 &11430896
@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 0}
-  madeObject: {fileID: 131550, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
+  madeObject: {fileID: 0}
+  objectLimit: 5
 --- !u!124 &12441638
 Behaviour:
   m_ObjectHideFlags: 1
