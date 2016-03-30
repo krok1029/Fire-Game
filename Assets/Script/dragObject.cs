@@ -28,7 +28,7 @@ public class dragObject : MonoBehaviour {
         {
             speed = 15;
         }
-        Debug.Log(speed);
+       // Debug.Log(speed);
 
     }
 

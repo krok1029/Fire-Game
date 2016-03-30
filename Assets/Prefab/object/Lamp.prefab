@@ -12,7 +12,6 @@ GameObject:
   - 23: {fileID: 2310524}
   - 54: {fileID: 5494970}
   - 64: {fileID: 6441762}
-  - 195: {fileID: 19592188}
   - 114: {fileID: 11436244}
   m_Layer: 10
   m_Name: Lamp
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.3, y: 4.85, z: 11.86}
+  m_LocalPosition: {x: -161.65, y: -326.65, z: 11.86}
   m_LocalScale: {x: 10, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,28 +106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   building: {fileID: 414598}
-  backbutton: {fileID: 0}
-  buildbutton: {fileID: 0}
---- !u!195 &19592188
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131550}
-  m_Enabled: 1
-  m_Radius: 0.013
-  m_Speed: 0
-  m_Acceleration: 0
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.1
-  m_BaseOffset: 0.0479364
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  backbutton: {fileID: 11428606, guid: 51323eef11a2c40419364baa29400af9, type: 2}
+  buildbutton: {fileID: 11497726, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
+  Lockbutton: {fileID: 11453318, guid: b04ae92f370bd944e8c6127ba2c5b861, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -174,6 +154,11 @@ Prefab:
       propertyPath: m_Speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Lockbutton
+      value: 
+      objectReference: {fileID: 11453318, guid: b04ae92f370bd944e8c6127ba2c5b861,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131550}

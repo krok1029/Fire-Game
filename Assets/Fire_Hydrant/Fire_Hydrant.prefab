@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
+  - 54: {fileID: 5493164}
+  - 64: {fileID: 6420864}
+  - 114: {fileID: 11490402}
   m_Layer: 0
   m_Name: Fire_Hydrant
   m_TagString: Untagged
@@ -26,9 +29,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 9.983933, y: 6.159115, z: -15.252116}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: -99.88999, y: -331.5, z: 4.560572}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,13 +77,71 @@ MeshFilter:
 --- !u!1002 &3300001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!54 &5493164
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!64 &6420864
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300000, guid: 071efa14615269b4b999a68c2f7b64e6, type: 3}
+--- !u!114 &11490402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2221da01469590f499c19e6f74fbd97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  building: {fileID: 400000}
+  backbutton: {fileID: 11428606, guid: 51323eef11a2c40419364baa29400af9, type: 2}
+  buildbutton: {fileID: 11497726, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
+  Lockbutton: {fileID: 11453318, guid: b04ae92f370bd944e8c6127ba2c5b861, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: backbutton
+      value: 
+      objectReference: {fileID: 11428606, guid: 51323eef11a2c40419364baa29400af9,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: buildbutton
+      value: 
+      objectReference: {fileID: 11497726, guid: b7df640ebba882d4e88dc26de57273ac,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: Lockbutton
+      value: 
+      objectReference: {fileID: 11453318, guid: b04ae92f370bd944e8c6127ba2c5b861,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
