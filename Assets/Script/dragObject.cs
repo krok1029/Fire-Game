@@ -8,38 +8,42 @@ public class dragObject : MonoBehaviour {
     public Button backbutton;
     public Button buildbutton;
     public Button Lockbutton;
-    bool i; 
+    private bool i=true;
+    int test = 0;
 
-
-    void OnMouseDrag()
-    { 
-       building.position += Vector3.right * Time.deltaTime * Input.GetAxis("Mouse X") * speed * 10;
-       building.position += Vector3.forward * Time.deltaTime * Input.GetAxis("Mouse Y") * speed * 10;
-
-
+    void Start() {
         backbutton.onClick.AddListener(click1);
         buildbutton.onClick.AddListener(click2);
-        Lockbutton.onClick.AddListener(click1);
-        if (i==true)
+        //Lockbutton.onClick.AddListener(click1);
+    }
+
+    void OnMouseDrag()
+    {
+        if (i == true)
         {
             speed = 0;
         }
-        if (i == false)
-        {
+        else {
             speed = 15;
         }
-       // Debug.Log(speed);
+        building.position += Vector3.right * Time.deltaTime * Input.GetAxis("Mouse X") * speed * 10;
+        building.position += Vector3.forward * Time.deltaTime * Input.GetAxis("Mouse Y") * speed * 10;
+
+       
+        Debug.Log(i+ "test" + test);
 
     }
 
     void click1()
     {
         i = true;
+        test++;
 
     }
     void click2()
     {
         i = false;
+        test++;
     }
    
 }

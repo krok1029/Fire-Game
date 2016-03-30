@@ -108,7 +108,7 @@ MonoBehaviour:
   building: {fileID: 414598}
   backbutton: {fileID: 11428606, guid: 51323eef11a2c40419364baa29400af9, type: 2}
   buildbutton: {fileID: 11497726, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
-  Lockbutton: {fileID: 11453318, guid: b04ae92f370bd944e8c6127ba2c5b861, type: 2}
+  Lockbutton: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

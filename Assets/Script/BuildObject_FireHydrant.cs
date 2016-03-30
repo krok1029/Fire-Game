@@ -21,7 +21,7 @@ public class BuildObject_FireHydrant : MonoBehaviour
             counter = counter + 1;
             clone.transform.Rotate(new Vector3(-90, 0, 0));
         }
-        Debug.Log(counter);
+     //   Debug.Log(counter);
     }
 
 }

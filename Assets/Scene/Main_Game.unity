@@ -737,6 +737,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 461692, guid: 53c655ab2149c3644badaf285ca55b9a, type: 2}
   m_PrefabInternal: {fileID: 253299395}
+--- !u!1 &321554536 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 2}
+  m_PrefabInternal: {fileID: 758003422}
 --- !u!4 &404867922 stripped
 Transform:
   m_PrefabParentObject: {fileID: 450876, guid: 91f51cd969f9d924085ad79686247f08, type: 2}
@@ -826,6 +830,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11499332, guid: 61ce6e11f2e831d488c6db22667592f8, type: 2}
+      propertyPath: madeObject
+      value: 
+      objectReference: {fileID: 321554536}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61ce6e11f2e831d488c6db22667592f8, type: 2}
   m_IsPrefabParent: 0
@@ -1416,30 +1424,7 @@ Prefab:
       propertyPath: buildList
       value: 
       objectReference: {fileID: 1437536822}
-    - target: {fileID: 11487762, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
-      propertyPath: madeObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2096468, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406774, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11406774, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
-      propertyPath: building
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11487762, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
-      propertyPath: objectLimit
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11430896, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
-    - {fileID: 11404100, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
-    - {fileID: 11487762, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1437536822 stripped

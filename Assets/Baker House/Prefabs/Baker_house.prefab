@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -132.84999, y: -331.5, z: 27.1}
+  m_LocalPosition: {x: -162, y: -331.5, z: 27.1}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   building: {fileID: 400000}
   backbutton: {fileID: 11428606, guid: 51323eef11a2c40419364baa29400af9, type: 2}
   buildbutton: {fileID: 11497726, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
-  Lockbutton: {fileID: 11453318, guid: b04ae92f370bd944e8c6127ba2c5b861, type: 2}
+  Lockbutton: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
