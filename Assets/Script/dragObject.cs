@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class dragObject : MonoBehaviour
 {
-    public float speed = 15;
+    public float speed = 20;
     public Transform building ;
     public Button backbutton;
     public Button buildbutton;
@@ -26,7 +26,7 @@ public class dragObject : MonoBehaviour
        // Debug.Log(buildlist.activeInHierarchy);
         if (i == true)
         {
-            speed = 15;
+            speed = 20;
         }
         else {
             speed = 0;

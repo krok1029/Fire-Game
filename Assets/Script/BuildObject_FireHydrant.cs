@@ -17,7 +17,7 @@ public class BuildObject_FireHydrant : MonoBehaviour
         else
         {
             clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
-            clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(5, 4.793643f, 3), 1f);
+            clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(5,0f, 3), 1f);
             counter = counter + 1;
             clone.transform.Rotate(new Vector3(-90, 0, 0));
         }
