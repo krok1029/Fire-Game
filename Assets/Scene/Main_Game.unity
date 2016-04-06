@@ -1329,7 +1329,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11401658, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
       propertyPath: m_Text
-      value: adtior
+      value: edit
       objectReference: {fileID: 0}
     - target: {fileID: 138802, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
       propertyPath: m_IsActive

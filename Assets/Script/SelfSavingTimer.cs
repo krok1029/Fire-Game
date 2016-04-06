@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SelfSaveTimer : MonoBehaviour {
+public class SelfSavingTimer : MonoBehaviour {
     private float time = 0.0f;
 	
 	void Start ()
@@ -12,7 +12,7 @@ public class SelfSaveTimer : MonoBehaviour {
 	void Update () {
         time += Time.deltaTime;
 	}
-    void OnDestory()
+    void OnDestroy()
     {
         PlayerPrefs.SetFloat("Timer", time);
         PlayerPrefs.Save();

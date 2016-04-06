@@ -37,6 +37,21 @@ public class dragObject : MonoBehaviour
     
     
     }
-    
-   
+    void OnMouseDown()
+    {
+        if (buildlist.activeInHierarchy)
+        {
+            building.position += new Vector3(0, 4, 0);
+        }
+        
+    }
+    void OnMouseUp()
+    {
+
+        if (buildlist.activeInHierarchy)
+        {
+            building.position += new Vector3(0, -4, 0);
+        }
+       
+    }
 }
