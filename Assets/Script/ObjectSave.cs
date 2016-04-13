@@ -18,7 +18,7 @@ public class ObjectSave : MonoBehaviour {
 
             rb.velocity=PlayerPrefsX.GetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
             rb.angularVelocity= PlayerPrefsX.GetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
-           
+            Debug.Log(true);
         }
         
 	}
@@ -30,6 +30,7 @@ public class ObjectSave : MonoBehaviour {
 
         PlayerPrefsX.SetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
         PlayerPrefsX.SetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
+
     
         
         

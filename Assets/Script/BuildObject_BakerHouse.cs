@@ -6,7 +6,15 @@ public class BuildObject_BakerHouse : MonoBehaviour
     public GameObject madeObject;
     public int objectLimit;
     private int counter = 0;
-       
+    private int objectID;
+    private static int currentObjectID = 0;
+
+    void Start()
+    {
+        objectID = currentObjectID;
+        currentObjectID++;
+        counter = PlayerPrefs.GetInt("ObjectInt_BakerHouse" + objectID.ToString());
+    }
     public void makeObject()
     {
         GameObject clone;
@@ -23,5 +31,8 @@ public class BuildObject_BakerHouse : MonoBehaviour
         }
       //  Debug.Log(counter);
     }
-
+    void OnDestroy()
+    {
+        PlayerPrefs.SetInt("ObjectInt_BakerHouse" + objectID.ToString(), counter);
+    }
 }
