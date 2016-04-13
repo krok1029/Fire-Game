@@ -14,6 +14,7 @@ GameObject:
   - 54: {fileID: 5400490}
   - 114: {fileID: 11470152}
   - 64: {fileID: 6439066}
+  - 114: {fileID: 11412346}
   m_Layer: 0
   m_Name: Baker_house
   m_TagString: Untagged
@@ -110,6 +111,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11412346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fc16a2a33f2f8489d9c2bc67e5b5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11470152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,9 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   building: {fileID: 400000}
-  backbutton: {fileID: 11428606, guid: 51323eef11a2c40419364baa29400af9, type: 2}
-  buildbutton: {fileID: 11497726, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
-  Lockbutton: {fileID: 0}
+  backbutton: {fileID: 0}
+  buildbutton: {fileID: 0}
+  buildlist: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

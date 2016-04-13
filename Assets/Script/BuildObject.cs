@@ -6,10 +6,13 @@ public class BuildObject : MonoBehaviour
     public GameObject madeObject;
     public int objectLimit;
     private int counter=0;
- 
+    GameObject clone;
+
+    private GameObject Object;
+    
     public void makeObject()
     {
-        GameObject clone;
+        
         if (counter == objectLimit)
         {
             CancelInvoke();
@@ -20,7 +23,8 @@ public class BuildObject : MonoBehaviour
             clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(5, 4.793643f, 3), 1f);
             counter = counter + 1;           
         }
-        //Debug.Log(counter);
+        
+        
     }
-  
+
 }

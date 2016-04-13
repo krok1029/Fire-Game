@@ -6,9 +6,7 @@ public class BuildObject_BakerHouse : MonoBehaviour
     public GameObject madeObject;
     public int objectLimit;
     private int counter = 0;
-
-
-   
+       
     public void makeObject()
     {
         GameObject clone;
