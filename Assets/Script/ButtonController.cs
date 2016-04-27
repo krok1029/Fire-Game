@@ -28,6 +28,7 @@ public class ButtonController : MonoBehaviour {
         build.SetActive(false);
         backbutton.SetActive(false);
         buildbutton.SetActive(true);
+      
     }
 
 }

@@ -6,7 +6,7 @@ public class SaveObjectLoading_FireHydrant : MonoBehaviour {
     private int objectID;
     private static int currentObjectID = 0;
     private int n;
-    void Start()
+    public void Start()
     {
         objectID = currentObjectID;
         currentObjectID++;

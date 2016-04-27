@@ -102,7 +102,7 @@ public class PlayerPrefsX
 
     public static bool SetVector3(String key, Vector3 vector)
     {
-        return SetFloatArray(key, new float[] { vector.x, vector.y, vector.z });
+        return SetFloatArray(key, new float[] { vector.x, vector.y, vector.z })            ;
     }
 
     public static Vector3 GetVector3(String key)
