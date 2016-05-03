@@ -17,7 +17,7 @@ public class ObjectSave : MonoBehaviour {
         currentObjectID++;
         if (PlayerPrefs.HasKey("ObjectPosition" + objectID.ToString())){
             transform.position = PlayerPrefsX.GetVector3("ObjectPosition" + objectID.ToString());
-            Debug.Log(transform.position[0]);
+//            Debug.Log(transform.position[0]);
             transform.rotation = PlayerPrefsX.GetQuaternion("ObjectRotation" + objectID.ToString());
 
             rb.velocity=PlayerPrefsX.GetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
@@ -36,18 +36,21 @@ public class ObjectSave : MonoBehaviour {
         PlayerPrefsX.SetVector3("ObjectPosition" + objectID.ToString(), transform.position);
         PlayerPrefsX.SetQuaternion("ObjectRotation" + objectID.ToString(), transform.rotation);
 
-        PlayerPrefsX.SetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
-        PlayerPrefsX.SetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
+        //PlayerPrefsX.SetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
+        //PlayerPrefsX.SetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
 
-        //gameObject["P3"] = PlayerPrefsX.GetVector3("ObjectPosition" + objectID.ToString());
-        gameObject["PositionY"] = transform.position.y;
-        gameObject["PositionX"] = transform.position.x;
-        gameObject["PositionZ"] = transform.position.z;
-        //gameObject["Rotation"] = PlayerPrefsX.GetQuaternion("ObjectRotation" + objectID.ToString());
-        //gameObject["Velocity"] = PlayerPrefsX.GetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
-        //gameObject["AngularVelocity"] = PlayerPrefsX.GetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
-        Task saveTask = gameObject.SaveAsync();
-
-
+       
+            gameObject["ObjectNum"+objectID] =  objectID;
+            gameObject["PositionY"] = transform.position.y;
+            gameObject["PositionX"] = transform.position.x;
+            gameObject["PositionZ"] = transform.position.z;
+            //gameObject["Rotation"] = PlayerPrefsX.GetQuaternion("ObjectRotation" + objectID.ToString());
+            //gameObject["Velocity"] = PlayerPrefsX.GetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
+            //gameObject["AngularVelocity"] = PlayerPrefsX.GetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
+            Task saveTask = gameObject.SaveAsync();
+            ParseObject testObject = new ParseObject("TestObject");
+            testObject["foo"] = "bar";
+            testObject.SaveAsync();
+        
     }
 }

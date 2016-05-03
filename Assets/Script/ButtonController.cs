@@ -8,8 +8,15 @@ public class ButtonController : MonoBehaviour {
     public GameObject buildbutton;
     public GameObject backbutton;
     public Transform building;
-
-   
+    public GameObject LogIn;
+    bool loginbool=false;
+    void Start()
+    {
+        if (PlayerPrefsX.GetBool("login"))
+        {
+            LogIn.SetActive(false);
+        }
+    }
   
 
     public void appear()
@@ -30,6 +37,11 @@ public class ButtonController : MonoBehaviour {
         buildbutton.SetActive(true);
       
     }
-
+    public void login()
+    {
+        Destroy(LogIn);
+        loginbool = true;
+        PlayerPrefsX.SetBool("login", loginbool);
+    }
 }
 
