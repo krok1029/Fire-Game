@@ -15,6 +15,7 @@ GameObject:
   - 195: {fileID: 19532684}
   - 114: {fileID: 11439138}
   - 114: {fileID: 11457478}
+  - 114: {fileID: 11499334}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.9, y: 4.95, z: 4.1}
+  m_LocalPosition: {x: 14.9, y: 4.95, z: 4.0999985}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d4fa96a45697543a246729a53d5665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 19532684}
   target: {fileID: 0}
 --- !u!114 &11457478
 MonoBehaviour:
@@ -110,7 +111,18 @@ MonoBehaviour:
   building: {fileID: 423740}
   backbutton: {fileID: 0}
   buildbutton: {fileID: 0}
-  Lockbutton: {fileID: 0}
+  buildlist: {fileID: 0}
+--- !u!114 &11499334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100188}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fc16a2a33f2f8489d9c2bc67e5b5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &13642026
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -132,7 +144,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 100188}
   m_Enabled: 1
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

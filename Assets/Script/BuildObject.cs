@@ -7,9 +7,7 @@ public class BuildObject : MonoBehaviour
     public int objectLimit;
     private int counter=0;
     GameObject clone;
-
-    private GameObject Object;
-    
+       
     public void makeObject()
     {
         
