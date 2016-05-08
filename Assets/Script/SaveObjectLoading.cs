@@ -10,13 +10,14 @@ public class SaveObjectLoading : MonoBehaviour {
     {
         objectID = currentObjectID;
         currentObjectID++;
-        if (PlayerPrefs.HasKey("ObjectPosition" + objectID.ToString()))
+        if (PlayerPrefs.HasKey(this.gameObject.name + objectID.ToString()))
         {
             for (n = 0; n < PlayerPrefs.GetInt("ObjectInt_BakerHouse" + objectID.ToString());n++)
             {
-                Instantiate(madeObject, PlayerPrefsX.GetVector3("ObjectPosition" + objectID.ToString()), PlayerPrefsX.GetQuaternion("ObjectRotation" + objectID.ToString()));
+                Instantiate(madeObject, PlayerPrefsX.GetVector3(this.gameObject.name + objectID.ToString()), PlayerPrefsX.GetQuaternion(this.gameObject.name + objectID.ToString()));
 
             }
+
         }
     }
 

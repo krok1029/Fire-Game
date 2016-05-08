@@ -9,6 +9,7 @@ public class ButtonController : MonoBehaviour {
     public GameObject backbutton;
     public Transform building;
     public GameObject LogIn;
+    public Text username;
     bool loginbool=false;
     void Start()
     {
@@ -42,6 +43,7 @@ public class ButtonController : MonoBehaviour {
         Destroy(LogIn);
         loginbool = true;
         PlayerPrefsX.SetBool("login", loginbool);
+        PlayerPrefs.SetString("UserID", username.text);
     }
 }
 
