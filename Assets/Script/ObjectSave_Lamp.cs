@@ -11,8 +11,7 @@ public class ObjectSave_Lamp : MonoBehaviour
     private int ID;
     private Rigidbody rb;
     public Button saveButton;
-
-
+    
     // Use this for initialization
     void Start()
     {
@@ -21,13 +20,12 @@ public class ObjectSave_Lamp : MonoBehaviour
 
         objectID_lamp = currentObjectID;
         currentObjectID++;
-        if (PlayerPrefs.HasKey(this.gameObject.name + objectID_lamp.ToString()))
+        if (PlayerPrefs.HasKey("LampPosition" + objectID_lamp.ToString()))
         {
-            transform.position = PlayerPrefsX.GetVector3(this.gameObject.name + objectID_lamp.ToString());
-            transform.rotation = new Quaternion(0, 0, 0, 0);//PlayerPrefsX.GetQuaternion("ObjectRotation" + objectID.ToString());
-            rb.velocity = PlayerPrefsX.GetVector3("ObjectRigidbodyVelocity" + objectID_lamp.ToString(), rb.velocity);
-            rb.angularVelocity = PlayerPrefsX.GetVector3("ObjectRigidbodyAngularVelocity" + objectID_lamp.ToString(), rb.angularVelocity);
-            Debug.Log(000000000);
+            transform.position = PlayerPrefsX.GetVector3("LampPosition" + objectID_lamp.ToString());
+            transform.rotation = PlayerPrefsX.GetQuaternion("LampRosition" + objectID_lamp.ToString());
+
+
         }
 
 
@@ -39,11 +37,10 @@ public class ObjectSave_Lamp : MonoBehaviour
     public void Save()
     {
         ParseObject gameObject = new ParseObject("GameObject");
-        PlayerPrefsX.SetVector3(this.gameObject.name + objectID_lamp.ToString(), transform.position);
-        PlayerPrefsX.SetQuaternion(this.gameObject.name + objectID_lamp.ToString(), transform.rotation);
+        PlayerPrefsX.SetVector3("LampPosition" + objectID_lamp.ToString(), transform.position);
+        PlayerPrefsX.SetQuaternion("LamRosition" + objectID_lamp.ToString(), transform.rotation);
 
-        //PlayerPrefsX.SetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
-        //PlayerPrefsX.SetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
+
 
 
 
@@ -54,9 +51,7 @@ public class ObjectSave_Lamp : MonoBehaviour
                 gameObject["ObjectName"] = "Lamp";
                 gameObject["GameObjectId"] = objectID_lamp;
 
-        //gameObject["Rotation"] = PlayerPrefsX.GetQuaternion("ObjectRotation" + objectID.ToString());
-        //gameObject["Velocity"] = PlayerPrefsX.GetVector3("ObjectRigidbodyVelocity" + objectID.ToString(), rb.velocity);
-        //gameObject["AngularVelocity"] = PlayerPrefsX.GetVector3("ObjectRigidbodyAngularVelocity" + objectID.ToString(), rb.angularVelocity);
+
         Task saveTask = gameObject.SaveAsync();
     }
 }

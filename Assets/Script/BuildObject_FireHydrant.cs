@@ -29,9 +29,9 @@ public class BuildObject_FireHydrant : MonoBehaviour
             clone.transform.Rotate(new Vector3(-90, 0, 0));
             counter = counter + 1;
         }
-        //  Debug.Log(counter);
+      
     }
-    void OnDestroy()
+    public void counterSave()
     {
         PlayerPrefs.SetInt("ObjectInt_FireHydrant" + objectID.ToString(), counter);
     }

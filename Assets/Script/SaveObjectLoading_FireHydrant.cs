@@ -10,11 +10,11 @@ public class SaveObjectLoading_FireHydrant : MonoBehaviour {
     {
         objectID = currentObjectID;
         currentObjectID++;
-        if (PlayerPrefs.HasKey("ObjectPosition" + objectID.ToString()))
+        if (PlayerPrefs.HasKey("FireHydrantPosition" + objectID.ToString()))
         {
             for (n = 0; n < PlayerPrefs.GetInt("ObjectInt_FireHydrant" + objectID.ToString()); n++)
             {
-                Instantiate(madeObject, PlayerPrefsX.GetVector3("ObjectPosition" + objectID.ToString()), PlayerPrefsX.GetQuaternion("ObjectRotation" + objectID.ToString()));
+                Instantiate(madeObject, PlayerPrefsX.GetVector3("FireHydrantPosition" + objectID.ToString()), PlayerPrefsX.GetQuaternion("FireHydrantPosition" + objectID.ToString()));
                 
             }
         }

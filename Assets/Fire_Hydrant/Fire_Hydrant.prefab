@@ -13,7 +13,7 @@ GameObject:
   - 54: {fileID: 5493164}
   - 64: {fileID: 6420864}
   - 114: {fileID: 11490402}
-  - 114: {fileID: 11440098}
+  - 114: {fileID: 11487438}
   m_Layer: 0
   m_Name: Fire_Hydrant
   m_TagString: Untagged
@@ -105,7 +105,7 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 071efa14615269b4b999a68c2f7b64e6, type: 3}
---- !u!114 &11440098
+--- !u!114 &11487438
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -113,9 +113,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23fc16a2a33f2f8489d9c2bc67e5b5fe, type: 3}
+  m_Script: {fileID: 11500000, guid: be9002e99309d3c4abd5d9d50b290a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveButton: {fileID: 0}
 --- !u!114 &11490402
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,33 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Parse;
-using System.Collections.Generic;
 
-public class SaveObjectLoading : MonoBehaviour {
+public class SaveObjectLoading_Lamp : MonoBehaviour
+{
     public GameObject madeObject;
     private int objectID;
     private static int currentObjectID = 0;
     private int n;
     public void Start()
     {
-       
+
         objectID = currentObjectID;
         currentObjectID++;
-        if (PlayerPrefs.HasKey("Baker_HousePosition" + objectID.ToString()))
+        if (PlayerPrefs.HasKey("LampPosition" + objectID.ToString()))
         {
-            for (n = 0; n < PlayerPrefs.GetInt("ObjectInt_BakerHouse" + objectID.ToString());n++)
+            for (n = 0; n < PlayerPrefs.GetInt("ObjectInt_Lamp" + objectID.ToString()); n++)
             {
-               
-                Instantiate(madeObject, PlayerPrefsX.GetVector3("Baker_HousePosition" + objectID.ToString()), new Quaternion(-90, 0, 0, 0));
+
+                Instantiate(madeObject, PlayerPrefsX.GetVector3("LampPosition" + objectID.ToString()), new Quaternion(-90, 0, 0, 0));
 
             }
 
         }
-        
+
+        /*
 
         var query = ParseObject.GetQuery("GameObject")
             .WhereEqualTo("UserName", "user1");
- 
+
         query.FindAsync().ContinueWith(t =>
         {
             IEnumerable<ParseObject> results = t.Result;
@@ -37,8 +37,8 @@ public class SaveObjectLoading : MonoBehaviour {
                 x = result.Get<float>("PositionX");
                 y = result.Get<float>("PositionY");
                 z = result.Get<float>("PositionZ");
-             //   Debug.Log(x);
-                
+                //   Debug.Log(x);
+
             }
         });
 
@@ -47,5 +47,6 @@ public class SaveObjectLoading : MonoBehaviour {
     }
 
 
-
+    */
+    }
 }
