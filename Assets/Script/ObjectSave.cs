@@ -45,9 +45,6 @@ public class ObjectSave : MonoBehaviour {
                 gameObject["PositionZ"] = this.gameObject.transform.position.z;
                 gameObject["ObjectName"] = "Baker_house";
                 gameObject["GameObjectId"] = objectID_baker_house;
-
-
-
-            Task saveTask = gameObject.SaveAsync();
+                Task saveTask = gameObject.SaveAsync();
     }
 }

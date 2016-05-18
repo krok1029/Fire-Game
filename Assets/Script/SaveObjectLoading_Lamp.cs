@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Parse;
+using System.Collections.Generic;
 
 public class SaveObjectLoading_Lamp : MonoBehaviour
 {
@@ -23,10 +25,9 @@ public class SaveObjectLoading_Lamp : MonoBehaviour
 
         }
 
-        /*
+        
 
-        var query = ParseObject.GetQuery("GameObject")
-            .WhereEqualTo("UserName", "user1");
+        var query = ParseObject.GetQuery("GameObject").WhereEqualTo("UserName", "user1");
 
         query.FindAsync().ContinueWith(t =>
         {
@@ -37,7 +38,7 @@ public class SaveObjectLoading_Lamp : MonoBehaviour
                 x = result.Get<float>("PositionX");
                 y = result.Get<float>("PositionY");
                 z = result.Get<float>("PositionZ");
-                //   Debug.Log(x);
+                  
 
             }
         });
@@ -47,6 +48,6 @@ public class SaveObjectLoading_Lamp : MonoBehaviour
     }
 
 
-    */
+    
     }
-}
+
