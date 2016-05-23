@@ -26,7 +26,7 @@ public class ObjectSave : MonoBehaviour {
             transform.rotation =PlayerPrefsX.GetQuaternion("Baker_HouseRotation" + objectID_baker_house.ToString());
 
         }
-       
+        
 
         saveButton.onClick.AddListener(Save);
     }
@@ -35,16 +35,23 @@ public class ObjectSave : MonoBehaviour {
 
     public void Save()
     {
+        
+
         ParseObject gameObject = new ParseObject("GameObject");
         PlayerPrefsX.SetVector3("Baker_HousePosition" + objectID_baker_house.ToString(), transform.position);
         PlayerPrefsX.SetQuaternion("Baker_HouseRotation" + objectID_baker_house.ToString(), transform.rotation);
 
-                gameObject["UserName"] = PlayerPrefs.GetString("UserID");
-                gameObject["PositionX"] = this.gameObject.transform.position.x;
-                gameObject["PositionY"] = this.gameObject.transform.position.y;
-                gameObject["PositionZ"] = this.gameObject.transform.position.z;
-                gameObject["ObjectName"] = "Baker_house";
-                gameObject["GameObjectId"] = objectID_baker_house;
-                Task saveTask = gameObject.SaveAsync();
+        gameObject["UserName"] = PlayerPrefs.GetString("UserID");
+        gameObject["PositionX"] = this.gameObject.transform.position.x;
+        gameObject["PositionY"] = this.gameObject.transform.position.y;
+        gameObject["PositionZ"] = this.gameObject.transform.position.z;
+
+        gameObject["ObjectName"] = this.gameObject.name;
+        gameObject["GameObjectId"] = objectID_baker_house;
+        Task saveTask = gameObject.SaveAsync();
+
+
+
+
     }
 }

@@ -9,6 +9,7 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
     private static int currentObjectID = 0;
     private Rigidbody rb;
     public Button saveButton;
+    public GameObject firehydrant;
 
 
     // Use this for initialization
@@ -27,7 +28,6 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
 
         }
 
-
         saveButton.onClick.AddListener(Save);
     }
 
@@ -35,6 +35,10 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
 
     public void Save()
     {
+
+ 
+
+
         ParseObject gameObject = new ParseObject("GameObject");
         PlayerPrefsX.SetVector3("FireHydrantPosition" + objectID_firehydrant.ToString(), transform.position);
         PlayerPrefsX.SetQuaternion("FireHydrantRosition" + objectID_firehydrant.ToString(), transform.rotation);
@@ -43,7 +47,7 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
                 gameObject["PositionX"] = this.gameObject.transform.position.x;
                 gameObject["PositionY"] = this.gameObject.transform.position.y;
                 gameObject["PositionZ"] = this.gameObject.transform.position.z;
-                gameObject["ObjectName"] = "Fire_Hydrant";
+                gameObject["ObjectName"] = this.gameObject.name;
                 gameObject["GameObjectId"] = objectID_firehydrant;
 
         Task saveTask = gameObject.SaveAsync();

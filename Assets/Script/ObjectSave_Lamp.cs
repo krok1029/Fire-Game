@@ -48,7 +48,7 @@ public class ObjectSave_Lamp : MonoBehaviour
                 gameObject["PositionX"] = this.gameObject.transform.position.x;
                 gameObject["PositionY"] = this.gameObject.transform.position.y;
                 gameObject["PositionZ"] = this.gameObject.transform.position.z;
-                gameObject["ObjectName"] = "Lamp";
+                gameObject["ObjectName"] = this.gameObject.name;
                 gameObject["GameObjectId"] = objectID_lamp;
 
 

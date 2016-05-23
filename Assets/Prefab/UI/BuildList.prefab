@@ -122,7 +122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &188528
 GameObject:
   m_ObjectHideFlags: 1
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46bef47424050e40b5a0d98a48adc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  madeObject: {fileID: 100000, guid: da77d6a3ed576d54ab1cf62aa4215d6e, type: 2}
+  madeObject: {fileID: 194278, guid: 5c5d8d24b0af87744bc42b353210c155, type: 2}
   objectLimit: 5
 --- !u!114 &11488434
 MonoBehaviour:
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d3d21a160f8544ea975996ef9ac650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  madeObject: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f, type: 2}
+  madeObject: {fileID: 117282, guid: 1c95080bdcd87934091a6795bd34b6f2, type: 2}
   objectLimit: 5
 --- !u!222 &22219194
 CanvasRenderer:
@@ -715,7 +715,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: madeObject
+      value: 
+      objectReference: {fileID: 194278, guid: 5c5d8d24b0af87744bc42b353210c155, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 177672}

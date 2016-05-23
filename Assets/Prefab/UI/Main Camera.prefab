@@ -13,6 +13,10 @@ GameObject:
   - 124: {fileID: 12441638}
   - 81: {fileID: 8170132}
   - 114: {fileID: 11406774}
+  - 114: {fileID: 11414818}
+  - 114: {fileID: 11490670}
+  - 114: {fileID: 11494408}
+  - 114: {fileID: 11486800}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -26,8 +30,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102206}
-  m_LocalRotation: {x: 0.5372997, y: 0, z: 0, w: 0.8433914}
-  m_LocalPosition: {x: 0, y: 80.7, z: -39.7}
+  m_LocalRotation: {x: 0.6087615, y: 0, z: 0, w: 0.7933533}
+  m_LocalPosition: {x: 0, y: 96.47, z: -28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,9 +95,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65684ecf11acf024b8869e2c4640ced5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  build: {fileID: 155330, guid: 53c655ab2149c3644badaf285ca55b9a, type: 2}
+  build: {fileID: 167316, guid: dcd9814beeda4584c9a6309161c53dd3, type: 2}
   buildList: {fileID: 177672, guid: 61ce6e11f2e831d488c6db22667592f8, type: 2}
+  buildbutton: {fileID: 138802, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
+  backbutton: {fileID: 151598, guid: 51323eef11a2c40419364baa29400af9, type: 2}
   building: {fileID: 0}
+  LogIn: {fileID: 151118, guid: 0d4a7c0f7e9d14642a17d214380ec89a, type: 2}
+  username: {fileID: 11424922, guid: a1eccd2846b8b8049a7f4eaebaf20f80, type: 2}
+--- !u!114 &11414818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16d402490097c8478682b3a89ab4b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11486800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 061f395db7e7aa94a9a696f3600da3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  madeObject: {fileID: 131550, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
+--- !u!114 &11490670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf13a34a5772d9145a796329742fc525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  madeObject: {fileID: 117282, guid: 1c95080bdcd87934091a6795bd34b6f2, type: 2}
+--- !u!114 &11494408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3652aacb13584794a868c09021b0defe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  madeObject: {fileID: 194278, guid: 5c5d8d24b0af87744bc42b353210c155, type: 2}
 --- !u!124 &12441638
 Behaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +166,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: madeObject
       value: 
-      objectReference: {fileID: 131550, guid: 5992d1c2f70a33b458e675c75f846424, type: 2}
+      objectReference: {fileID: 117282, guid: 1c95080bdcd87934091a6795bd34b6f2, type: 2}
     - target: {fileID: 0}
       propertyPath: building
       value: 
@@ -123,7 +178,24 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: build
       value: 
-      objectReference: {fileID: 155330, guid: 53c655ab2149c3644badaf285ca55b9a, type: 2}
+      objectReference: {fileID: 167316, guid: dcd9814beeda4584c9a6309161c53dd3, type: 2}
+    - target: {fileID: 0}
+      propertyPath: buildbutton
+      value: 
+      objectReference: {fileID: 138802, guid: b7df640ebba882d4e88dc26de57273ac, type: 2}
+    - target: {fileID: 0}
+      propertyPath: backbutton
+      value: 
+      objectReference: {fileID: 151598, guid: 51323eef11a2c40419364baa29400af9, type: 2}
+    - target: {fileID: 0}
+      propertyPath: LogIn
+      value: 
+      objectReference: {fileID: 151118, guid: 0d4a7c0f7e9d14642a17d214380ec89a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: username
+      value: 
+      objectReference: {fileID: 11424922, guid: a1eccd2846b8b8049a7f4eaebaf20f80,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102206}
