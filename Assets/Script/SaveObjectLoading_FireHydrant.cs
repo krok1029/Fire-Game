@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 public class SaveObjectLoading_FireHydrant : MonoBehaviour {
     public GameObject madeObject;
-    private int objectID;
-    private static int currentObjectID = 0;
-    private int n;
+   // private int objectID;
+    //private static int currentObjectID = 0;
+   // private int n;
     public void Start()
     {
-        objectID = currentObjectID;
+      /*  objectID = currentObjectID;
         currentObjectID++;
-        /* if (PlayerPrefs.HasKey("FireHydrantPosition" + objectID.ToString()))
+         if (PlayerPrefs.HasKey("FireHydrantPosition" + objectID.ToString()))
          {
              for (n = 0; n < PlayerPrefs.GetInt("ObjectInt_FireHydrant" + objectID.ToString()); n++)
              {
@@ -26,7 +26,7 @@ public class SaveObjectLoading_FireHydrant : MonoBehaviour {
     {
         
         
-            var query = ParseObject.GetQuery("GameObject").WhereEqualTo("UserName", "user1").WhereEqualTo("ObjectName", "Fire_Hydrant(Clone)");
+            var query = ParseObject.GetQuery("GameObject").WhereEqualTo("UserName", "user1").WhereEqualTo("ObjectName", "Fire_Hydrant");
             var task = query.FindAsync();
             while (!task.IsCompleted) yield return null;
             GameObject clone;

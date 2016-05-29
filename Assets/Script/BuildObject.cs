@@ -25,11 +25,11 @@ public class BuildObject : MonoBehaviour
         else
         {
             clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
-            clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 0, 4.7f), 1f);
+            clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 5.0f, 4.7f), 1f);
             clone.transform.Rotate(new Vector3(0, 0, 0));
             counter = counter + 1;
         }
-        //  Debug.Log(counter);
+        
     }
     public void counterSave()
     {
