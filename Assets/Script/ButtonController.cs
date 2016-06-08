@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Parse;
+using System.Threading.Tasks;
 
 public class ButtonController : MonoBehaviour {
     public GameObject build;
     public GameObject buildList;
     public GameObject buildbutton;
     public GameObject backbutton;
-    public Transform building;
     public GameObject LogIn;
+    public GameObject LogOutbutton;
     public Text username;
     bool loginbool=false;
+    public Text levelnum;
     void Start()
     {
         if (PlayerPrefsX.GetBool("login"))
@@ -44,6 +47,32 @@ public class ButtonController : MonoBehaviour {
         loginbool = true;
         PlayerPrefsX.SetBool("login", loginbool);
         PlayerPrefs.SetString("UserID", username.text);
+        StartCoroutine(generateItems());
+    }
+    public void logout()
+    {
+        PlayerPrefs.DeleteKey("login");
+        PlayerPrefs.DeleteKey("UserID");
+        Application.Quit();
+    }
+
+    IEnumerator generateItems()
+    {
+        ParseObject gameObject = new ParseObject("User");
+        var query = ParseObject.GetQuery("User").WhereEqualTo("username",username.text);
+        var task = query.FindAsync();
+        while (!task.IsCompleted) yield return null;
+        foreach (var result in task.Result)
+        {
+            result.DeleteAsync();
+
+        }
+
+        gameObject["username"] = username.text;
+        gameObject["Level"] = levelnum.text;
+        
+        Task saveTask = gameObject.SaveAsync();
+
     }
 }
 

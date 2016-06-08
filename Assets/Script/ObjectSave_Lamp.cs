@@ -10,12 +10,12 @@ public class ObjectSave_Lamp : MonoBehaviour
     private static int currentObjectID = 0;
   
     public Button saveButton;
-
+    string userID;
     // Use this for initialization
     void Start()
     {
-        
 
+        userID = PlayerPrefs.GetString("UserID");
         objectID_lamp = currentObjectID;
         currentObjectID++;
         if (PlayerPrefs.HasKey("LampPosition" + objectID_lamp.ToString()))
@@ -43,7 +43,7 @@ public class ObjectSave_Lamp : MonoBehaviour
     IEnumerator generateItems()
     {
         ParseObject gameObject = new ParseObject("GameObject");
-        var query = ParseObject.GetQuery("GameObject").WhereEqualTo("UserName", "user1").WhereEqualTo("ObjectName", "Lamp");
+        var query = ParseObject.GetQuery("GameObject").WhereEqualTo("UserName",userID).WhereEqualTo("ObjectName", "Lamp");
         var task = query.FindAsync();
         while (!task.IsCompleted) yield return null;
         foreach (var result in task.Result)

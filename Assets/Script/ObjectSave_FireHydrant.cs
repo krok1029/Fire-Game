@@ -10,12 +10,12 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
 
     public Button saveButton;
     public GameObject firehydrant;
-
+    string userID;
 
     // Use this for initialization
     void Start(){
 
-
+        userID = PlayerPrefs.GetString("UserID");
 
         objectID_firehydrant = currentObjectID;
         
@@ -44,7 +44,7 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
     IEnumerator generateItems()
     {
         ParseObject gameObject = new ParseObject("GameObject");
-        var query = ParseObject.GetQuery("GameObject").WhereEqualTo("UserName", "user1").WhereEqualTo("ObjectName", "Fire_Hydrant");
+        var query = ParseObject.GetQuery("GameObject").WhereEqualTo("UserName",userID).WhereEqualTo("ObjectName", "Fire_Hydrant");
         var task = query.FindAsync();
         while (!task.IsCompleted) yield return null;
         foreach (var result in task.Result)
