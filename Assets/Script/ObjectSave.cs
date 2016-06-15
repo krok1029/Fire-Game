@@ -56,5 +56,5 @@ public class ObjectSave : MonoBehaviour {
         gameObject["GameObjectId"] = objectID_baker_house;
         Task saveTask = gameObject.SaveAsync();
 
-    }
+    }  
 }

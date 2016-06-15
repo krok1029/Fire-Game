@@ -13,6 +13,8 @@ public class NowLevel : MonoBehaviour {
     public Text username;
     public Text levelnum;
     int c;
+    GameObject userNum;
+    public int userValue;
     // Use this for initialization
     void Start()
     {
@@ -71,6 +73,9 @@ public class NowLevel : MonoBehaviour {
     }
     public void Save()
     {
+        userNum = GameObject.Find("Main Camera");
+        userValue = userNum.GetComponent<userCounter>().counter+1;
+        Debug.Log("userValue=" + userValue);
         StartCoroutine(generateItems());
     }
     IEnumerator generateItems()
@@ -86,6 +91,9 @@ public class NowLevel : MonoBehaviour {
 
         gameObject["UserName"] =userID;
         gameObject["Level"] = level;
+        gameObject["userNumber"] = userValue;
+
+        Debug.Log("?" + gameObject["userNumber"]);
         Debug.Log(level);
         Task saveTask = gameObject.SaveAsync();
         Debug.Log("SAVE OK"+c);

@@ -12,8 +12,13 @@ public class ButtonController : MonoBehaviour {
     public GameObject LogIn;
     public GameObject LogOutbutton;
     public Text username;
-    bool loginbool=false;
+    bool loginbool = false;
     public Text levelnum;
+
+    void Awake() {
+
+    }
+
     void Start()
     {
         if (PlayerPrefsX.GetBool("login"))
@@ -43,11 +48,12 @@ public class ButtonController : MonoBehaviour {
     }
     public void login()
     {
-        Destroy(LogIn);
+
         loginbool = true;
         PlayerPrefsX.SetBool("login", loginbool);
         PlayerPrefs.SetString("UserID", username.text);
         StartCoroutine(generateItems());
+        Destroy(LogIn);
     }
     public void logout()
     {
@@ -55,6 +61,7 @@ public class ButtonController : MonoBehaviour {
         PlayerPrefs.DeleteKey("UserID");
         Application.Quit();
     }
+
 
     IEnumerator generateItems()
     {
@@ -65,14 +72,15 @@ public class ButtonController : MonoBehaviour {
         foreach (var result in task.Result)
         {
             result.DeleteAsync();
-
         }
-
         gameObject["username"] = username.text;
         gameObject["Level"] = levelnum.text;
-        
+
         Task saveTask = gameObject.SaveAsync();
+
 
     }
 }
+
+
 

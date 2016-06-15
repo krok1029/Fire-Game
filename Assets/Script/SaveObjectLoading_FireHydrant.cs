@@ -31,7 +31,6 @@ public class SaveObjectLoading_FireHydrant : MonoBehaviour {
     public void Login()
     {
         userID = username.text;
-        Debug.Log(userID);
         StartCoroutine(generateItems());
     }
     IEnumerator generateItems()
