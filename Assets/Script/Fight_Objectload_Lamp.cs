@@ -2,8 +2,7 @@
 using System.Collections;
 using Parse;
 
-
-public class Fight_Objectload_BakerHouse : MonoBehaviour {
+public class Fight_Objectload_Lamp : MonoBehaviour {
 
     public GameObject madeObject;
     string userID;
@@ -23,7 +22,7 @@ public class Fight_Objectload_BakerHouse : MonoBehaviour {
 
     IEnumerator generateItems()
     {
-        var query = ParseObject.GetQuery("GameObject").WhereEqualTo("ObjectName", "Baker_house").WhereEqualTo("UserName", userID);
+        var query = ParseObject.GetQuery("GameObject").WhereEqualTo("ObjectName", "Fire_Hydrant").WhereEqualTo("UserName", userID);
         var task = query.FindAsync();
         while (!task.IsCompleted) yield return null;
         GameObject clone;
@@ -32,7 +31,6 @@ public class Fight_Objectload_BakerHouse : MonoBehaviour {
             clone = Instantiate(madeObject, new Vector3(result.Get<float>("PositionX"), result.Get<float>("PositionY"), result.Get<float>("PositionZ")), new Quaternion(0, 0, 0, 0)) as GameObject;
             clone.transform.Rotate(new Vector3(-90, 0, 0));
         }
-
 
     }
     IEnumerator getusername()
@@ -44,21 +42,23 @@ public class Fight_Objectload_BakerHouse : MonoBehaviour {
         {
             userID = result.Get<string>("UserName");
         }
-
         StartBulid();
     }
-    void random() {
-        var randomInt = Random.Range(1,6 );
+    void random()
+    {
+        var randomInt = Random.Range(1, 6);
         randomNumber = randomInt;
-        
+    
     }
-    void StartBulid() {
+    void StartBulid()
+    {
         if (userNumber != randomNumber)
         {
-            Debug.Log("BajerHouse"+randomNumber);
+            Debug.Log("Lamp"+randomNumber);
             StartCoroutine(generateItems());
         }
-        else {
+        else
+        {
             random();
             StartBulid();
 

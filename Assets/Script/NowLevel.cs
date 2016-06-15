@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Parse;
 
 public class NowLevel : MonoBehaviour {
-    int level=0;
+    public int level=0;
     public Text lv;
     public GameObject lampButton;
     public GameObject fireHydrantButton;
@@ -92,11 +92,8 @@ public class NowLevel : MonoBehaviour {
         gameObject["UserName"] =userID;
         gameObject["Level"] = level;
         gameObject["userNumber"] = userValue;
-
-        Debug.Log("?" + gameObject["userNumber"]);
-        Debug.Log(level);
         Task saveTask = gameObject.SaveAsync();
-        Debug.Log("SAVE OK"+c);
+        Debug.Log("SAVE OK");
         c++;
     }
 

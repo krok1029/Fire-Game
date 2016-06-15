@@ -15,6 +15,7 @@ public class ButtonController : MonoBehaviour {
     bool loginbool = false;
     public Text levelnum;
 
+
     void Awake() {
 
     }
@@ -60,6 +61,9 @@ public class ButtonController : MonoBehaviour {
         PlayerPrefs.DeleteKey("login");
         PlayerPrefs.DeleteKey("UserID");
         Application.Quit();
+    }
+    public void surrdener() {
+        Application.LoadLevel(0);
     }
 
 

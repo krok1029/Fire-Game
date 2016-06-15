@@ -12,25 +12,27 @@ public class BuildObject : MonoBehaviour
     private int currentObjectID = 0;
     public Text levelnum;
     int levelnumber;
+    GameObject levelNum;
 
     void Start()
     {
         objectID = currentObjectID;
         currentObjectID++;
         counter = PlayerPrefs.GetInt("ObjectInt_Lamp" + objectID.ToString());
-        levelnumber = Int32.Parse(levelnum.text);
+        levelNum = GameObject.Find("Main Camera");
+        levelnumber = levelNum.GetComponent<NowLevel>().level;
         objectLimit = levelnumber;
 
     }
     void Update()
     {
-        levelnumber = Int32.Parse(levelnum.text);
+        levelnumber = levelNum.GetComponent<NowLevel>().level;
         objectLimit = levelnumber;
     }
     public void makeObject()
     {
         GameObject clone;
-        if (counter == objectLimit)
+        if (counter >= objectLimit)
         {
             CancelInvoke();
         }
