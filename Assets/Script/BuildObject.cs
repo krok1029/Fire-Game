@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System;
+using Parse;
 
 public class BuildObject : MonoBehaviour
 {
@@ -11,7 +11,6 @@ public class BuildObject : MonoBehaviour
     private int objectID;
     private int currentObjectID = 0;
     public Text levelnum;
-    int levelnumber;
     GameObject levelNum;
 
     void Start()
@@ -20,14 +19,11 @@ public class BuildObject : MonoBehaviour
         currentObjectID++;
         counter = PlayerPrefs.GetInt("ObjectInt_Lamp" + objectID.ToString());
         levelNum = GameObject.Find("Main Camera");
-        levelnumber = levelNum.GetComponent<NowLevel>().level;
-        objectLimit = levelnumber;
-
+        objectLimit = levelNum.GetComponent<NowLevel>().level;
     }
     void Update()
     {
-        levelnumber = levelNum.GetComponent<NowLevel>().level;
-        objectLimit = levelnumber;
+        objectLimit = levelNum.GetComponent<NowLevel>().level;
     }
     public void makeObject()
     {
@@ -49,6 +45,6 @@ public class BuildObject : MonoBehaviour
     {
         PlayerPrefs.SetInt("ObjectInt_Lamp" + objectID.ToString(), counter);
     }
-
+   
 
 }

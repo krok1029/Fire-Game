@@ -4,20 +4,21 @@ using UnityEngine.UI;
 using System.Threading.Tasks;
 using Parse;
 
-public class NowLevel : MonoBehaviour {
-    public int level=0;
-    public Text lv;
+public class NowLevel : MonoBehaviour
+{
+    public int level = 0;
     public GameObject lampButton;
     public GameObject fireHydrantButton;
     string userID;
     public Text username;
     public Text levelnum;
-    int c;
+    public Text lv;
     GameObject userNum;
     public int userValue;
-    // Use this for initialization
+
     void Start()
     {
+
         if (PlayerPrefsX.GetBool("login"))
         {
             userID = PlayerPrefs.GetString("UserID");
@@ -28,35 +29,29 @@ public class NowLevel : MonoBehaviour {
             level = 1;
         }
         setlevelText();
+        StartCoroutine(getUserNum());
     }
-    public void Login () {
+    public void Login()
+    {
 
         userID = username.text;
         StartCoroutine(loadLv());
-       
+
         if (level == 0)
         {
             level = 1;
         }
-       
+        StartCoroutine(getUserNum());
     }
     void Update()
     {
-
-        switch (level)
+        if (level >= 2)
         {
-            case 1:
-                lampButton.SetActive(false);
-                fireHydrantButton.SetActive(false);
-                break;
-            case 2:
-                lampButton.SetActive(false);
-                fireHydrantButton.SetActive(true);
-                break;
-            case 3:
-                lampButton.SetActive(true);
-                fireHydrantButton.SetActive(true);
-                break;
+            fireHydrantButton.SetActive(true);
+        }
+        if (level >= 3)
+        {
+            lampButton.SetActive(true);
         }
 
     }
@@ -69,16 +64,23 @@ public class NowLevel : MonoBehaviour {
     void setlevelText()
     {
         lv.text = "Lv. " + level.ToString();
-        levelnum.text= level.ToString();
+        levelnum.text = level.ToString();
     }
     public void Save()
     {
-        userNum = GameObject.Find("Main Camera");
-        userValue = userNum.GetComponent<userCounter>().counter+1;
-        Debug.Log("userValue=" + userValue);
-        StartCoroutine(generateItems());
+        if (userValue != 0)
+        {
+            Debug.Log("userValue=" + userValue);
+            StartCoroutine(SaveUser());
+        }
+        else
+        {
+            userNum = GameObject.Find("Main Camera");
+            userValue = userNum.GetComponent<userCounter>().counter + 1;
+            StartCoroutine(SaveUser());
+        }
     }
-    IEnumerator generateItems()
+    IEnumerator SaveUser()
     {
         ParseObject gameObject = new ParseObject("User");
         var query = ParseObject.GetQuery("User").WhereEqualTo("UserName", userID);
@@ -89,12 +91,11 @@ public class NowLevel : MonoBehaviour {
             result.DeleteAsync();
         }
 
-        gameObject["UserName"] =userID;
+        gameObject["UserName"] = userID;
         gameObject["Level"] = level;
         gameObject["userNumber"] = userValue;
         Task saveTask = gameObject.SaveAsync();
         Debug.Log("SAVE OK");
-        c++;
     }
 
 
@@ -106,9 +107,25 @@ public class NowLevel : MonoBehaviour {
         foreach (var result in task.Result)
         {
             level = result.Get<int>("Level");
-            
+
         }
         setlevelText();
+    }
+
+    IEnumerator getUserNum()
+    {
+        int users;
+        var query = ParseObject.GetQuery("User").WhereEqualTo("UserName", userID);
+        var task = query.FindAsync();
+        while (!task.IsCompleted) yield return null;
+        foreach (var result in task.Result)
+        {
+            users= result.Get<int>("userNumber");
+            if (users != 0)
+            {
+                userValue = users;
+            }
+        }
     }
 }
 

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ObjectSave : MonoBehaviour {
     private int objectID_baker_house;
     private static int currentObjectID = 0;
-    int c=0;
     public Button saveButton;
     string userID;
 

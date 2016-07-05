@@ -4,8 +4,6 @@ using Parse;
 using UnityEngine.UI;
 
 public class Fight_Objectload : MonoBehaviour {
-
-
     public GameObject madeObject_fireHydrant;
     public GameObject madeObject_lamp;
     public GameObject madeObject_bakerHouse;
@@ -14,13 +12,17 @@ public class Fight_Objectload : MonoBehaviour {
     GameObject userNum;
     int userNumber;
     public Text EmeryNameText;
+    GameObject user;
+    int allUser;
+
     public void Start()
     {
-        random();
+        // StartCoroutine(getallUserValue());
+        user= GameObject.Find("SceneManager");
+        allUser = user.GetComponent<Scenemanager>().counter;
         userNum = GameObject.Find("SceneManager");
         userNumber = userNum.GetComponent<Scenemanager>().userNumber;
-        Debug.Log("usernum ==  "+userNumber);
-        Debug.Log("random ==" + randomNumber);
+        random();
         StartCoroutine(getusername());
     }
 
@@ -34,10 +36,10 @@ public class Fight_Objectload : MonoBehaviour {
             userID = result.Get<string>("UserName");
         }
 
-        Debug.Log("username="+userID);
+        Debug.Log("enemyname=" + userID);
         StartBulid();
     }
-        IEnumerator generateItems_firehydrant()
+    IEnumerator generateItems_firehydrant()
     {
         var query = ParseObject.GetQuery("GameObject").WhereEqualTo("ObjectName", "Fire_Hydrant").WhereEqualTo("UserName", userID);
         var task = query.FindAsync();
@@ -77,9 +79,22 @@ public class Fight_Objectload : MonoBehaviour {
         }
 
     }
+    IEnumerator getallUserValue()
+    {
+        ParseObject gameObject = new ParseObject("User");
+        var query = ParseObject.GetQuery("User");
+        var task = query.FindAsync();
+        while (!task.IsCompleted) yield return null;
+        foreach (var result in task.Result)
+        {
+            allUser = allUser + 1;
+            Debug.Log("totalUser=" + allUser);
+        }
+
+    }
     void random()
     {
-        var randomInt = Random.Range(1, 10);
+        var randomInt = Random.Range(1, allUser);
         randomNumber = randomInt;
 
     }
@@ -87,7 +102,7 @@ public class Fight_Objectload : MonoBehaviour {
     {
         if (userNumber != randomNumber)
         {
-            Debug.Log(randomNumber);
+
             StartCoroutine(generateItems_firehydrant());
             StartCoroutine(generateItems_bakerHouse());
             StartCoroutine(generateItems_lamp());

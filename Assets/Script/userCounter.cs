@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 
 public class userCounter : MonoBehaviour {
     public int counter;
+    public int c;
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("OK!!");
         StartCoroutine(generateItems());
+    }
+    void Update()
+    {
+        c = counter;
     }
     IEnumerator generateItems()
     {
@@ -21,6 +25,6 @@ public class userCounter : MonoBehaviour {
         {
             counter = counter + 1;
         }
-        Debug.Log("counter="+counter);
+        Debug.Log("totalUser=" + counter);
     }
 }

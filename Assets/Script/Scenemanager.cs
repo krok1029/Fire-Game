@@ -4,7 +4,8 @@ using System.Collections;
 public class Scenemanager : MonoBehaviour {
     GameObject userNum;
     public int userNumber;
-
+    GameObject allUser;
+    public int counter;
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
@@ -16,6 +17,8 @@ public class Scenemanager : MonoBehaviour {
     public void Save() {
         userNum = GameObject.Find("Main Camera");
         userNumber = userNum.GetComponent<NowLevel>().userValue;
+        allUser = GameObject.Find("Main Camera");
+        counter = allUser.GetComponent<userCounter>().c;
     }
 	// Update is called once per frame
 	void Update () {

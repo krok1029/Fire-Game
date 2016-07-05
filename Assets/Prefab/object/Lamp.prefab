@@ -14,9 +14,10 @@ GameObject:
   - 64: {fileID: 6441762}
   - 114: {fileID: 11436244}
   - 114: {fileID: 11463788}
+  - 65: {fileID: 6515302}
   m_Layer: 10
   m_Name: Lamp
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 152.6, y: 5, z: -24.7}
-  m_LocalScale: {x: 10, y: 100, z: 100}
+  m_LocalPosition: {x: 195.2, y: 5, z: -24.741}
+  m_LocalScale: {x: 13.210792, y: 101.62152, z: 121.94582}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +77,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -90,10 +91,22 @@ MeshCollider:
   m_GameObject: {fileID: 131550}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 3d6bbcd189757a542830a66d7138497e, type: 3}
+--- !u!65 &6515302
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.55, y: 0.12, z: -0.05}
+  m_Center: {x: 0, y: 0, z: 0.020873582}
 --- !u!114 &11436244
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -65,8 +65,10 @@ public class ButtonController : MonoBehaviour {
     public void surrdener() {
         Application.LoadLevel(0);
     }
-
-
+    public void fightScene()
+    {
+        Application.LoadLevel(1);
+    }
     IEnumerator generateItems()
     {
         ParseObject gameObject = new ParseObject("User");

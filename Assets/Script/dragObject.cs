@@ -10,33 +10,26 @@ public class dragObject : MonoBehaviour
     public Button buildbutton;
     public GameObject buildlist;
     private bool i;
- 
+    RaycastHit rayHit;
+
     void OnMouseDrag()
     {
        
         if (buildlist.activeInHierarchy)
         {
-            i = true;
-        }
-        else
-        {
-            i = false;
-        }
+            building.position += Vector3.right * Time.deltaTime * Input.GetAxis("Mouse X") * 200;
+            building.position += Vector3.forward * Time.deltaTime * Input.GetAxis("Mouse Y") * 200;
+            /* Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+             if (Physics.Raycast(ray, out rayHit))
+             {
+                 if (rayHit.transform.tag == "Building")
+                 {
+                     building.transform.position = new Vector3(rayHit.point.x, 4, rayHit.point.z);
+                 }
+             }*/
 
-
-       // Debug.Log(buildlist.activeInHierarchy);
-        if (i == true)
-        {
-            speed = 20;
         }
-        else {
-            speed = 0;
-        }
-
-        building.position += Vector3.right * Time.deltaTime * Input.GetAxis("Mouse X") * speed * 10;
-        building.position += Vector3.forward * Time.deltaTime * Input.GetAxis("Mouse Y") * speed * 10;
-    
-    
+      
     }
     void OnMouseDown()
     {
