@@ -3,48 +3,49 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using Parse;
+using System;
 
 public class NowLevel : MonoBehaviour
 {
     public int level = 0;
     public GameObject lampButton;
     public GameObject fireHydrantButton;
-    string userID;
+    public string userID;
     public Text username;
     public Text levelnum;
     public Text lv;
     GameObject userNum;
     public int userValue;
+    DateTime loadtime;
+    public TimeSpan timediffer;
+    public int totaltime;
+    PlayerMoney money;
 
     void Start()
     {
-
+        money = GameObject.Find("Main Camera").GetComponent<PlayerMoney>();
         if (PlayerPrefsX.GetBool("login"))
         {
             userID = PlayerPrefs.GetString("UserID");
-            StartCoroutine(loadLv());
+            StartCoroutine(getUserNum());
         }
-        if (level == 0)
-        {
-            level = 1;
-        }
-        setlevelText();
-        StartCoroutine(getUserNum());
     }
     public void Login()
     {
-
         userID = username.text;
-        StartCoroutine(loadLv());
-
+        StartCoroutine(getUserNum());
+    }
+    public void levelUp()
+    {
+        level = level + 1;
+        setlevelText();
+    }
+    void setlevelText()
+    {
         if (level == 0)
         {
             level = 1;
         }
-        StartCoroutine(getUserNum());
-    }
-    void Update()
-    {
         if (level >= 2)
         {
             fireHydrantButton.SetActive(true);
@@ -53,18 +54,9 @@ public class NowLevel : MonoBehaviour
         {
             lampButton.SetActive(true);
         }
-
-    }
-    public void levelUp()
-    {
-        level = level + 1;
-        setlevelText();
-
-    }
-    void setlevelText()
-    {
-        lv.text = "Lv. " + level.ToString();
+        lv.text = "UserName: "+userID+"\nLv. " + level.ToString();
         levelnum.text = level.ToString();
+        StartCoroutine(online());
     }
     public void Save()
     {
@@ -80,6 +72,18 @@ public class NowLevel : MonoBehaviour
             StartCoroutine(SaveUser());
         }
     }
+    public void MoneyCount()
+    {
+        timediffer = DateTime.Now.Subtract(loadtime);
+        if (timediffer.Days <= 365)
+        {
+            totaltime = timediffer.Days * 1440 + timediffer.Hours * 60 + timediffer.Minutes;
+        }
+        else
+        {
+            totaltime = 0;
+        }
+    }
     IEnumerator SaveUser()
     {
         ParseObject gameObject = new ParseObject("User");
@@ -90,28 +94,14 @@ public class NowLevel : MonoBehaviour
         {
             result.DeleteAsync();
         }
-
         gameObject["UserName"] = userID;
         gameObject["Level"] = level;
         gameObject["userNumber"] = userValue;
+        gameObject["Money"] = money.money;
+        gameObject["SaveTime"] = DateTime.Now;
         Task saveTask = gameObject.SaveAsync();
         Debug.Log("SAVE OK");
     }
-
-
-    IEnumerator loadLv()
-    {
-        var query = ParseObject.GetQuery("User").WhereEqualTo("UserName", userID);
-        var task = query.FindAsync();
-        while (!task.IsCompleted) yield return null;
-        foreach (var result in task.Result)
-        {
-            level = result.Get<int>("Level");
-
-        }
-        setlevelText();
-    }
-
     IEnumerator getUserNum()
     {
         int users;
@@ -120,12 +110,32 @@ public class NowLevel : MonoBehaviour
         while (!task.IsCompleted) yield return null;
         foreach (var result in task.Result)
         {
-            users= result.Get<int>("userNumber");
+            level = result.Get<int>("Level");
+            users = result.Get<int>("userNumber");
+            money.money = result.Get<int>("Money");
+            loadtime = result.Get<DateTime>("SaveTime");
+
             if (users != 0)
             {
                 userValue = users;
             }
+            MoneyCount();
+            setlevelText();
         }
+    }
+    IEnumerator online()
+    {
+        ParseObject gameObject = new ParseObject("Online");
+        var query = ParseObject.GetQuery("Online").WhereEqualTo("UserName", userID);
+        var task = query.FindAsync();
+        while (!task.IsCompleted) yield return null;
+        foreach (var result in task.Result)
+        {
+            result.DeleteAsync();          
+        }
+        gameObject["online"] = true;
+        gameObject["UserName"] = userID;
+        Task saveTask = gameObject.SaveAsync();
     }
 }
 

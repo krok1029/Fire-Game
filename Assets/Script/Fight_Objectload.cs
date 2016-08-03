@@ -7,17 +7,19 @@ public class Fight_Objectload : MonoBehaviour {
     public GameObject madeObject_fireHydrant;
     public GameObject madeObject_lamp;
     public GameObject madeObject_bakerHouse;
-    string userID;
+    public string userID;//對手的ID
     int randomNumber;
     GameObject userNum;
-    int userNumber;
+    public int userNumber;//玩家ID
     public Text EmeryNameText;
     GameObject user;
     int allUser;
+    public int mon;
+    SelfSavingTimer money;
 
     public void Start()
     {
-        // StartCoroutine(getallUserValue());
+        //StartCoroutine(getallUserValue());
         user= GameObject.Find("SceneManager");
         allUser = user.GetComponent<Scenemanager>().counter;
         userNum = GameObject.Find("SceneManager");
@@ -28,15 +30,15 @@ public class Fight_Objectload : MonoBehaviour {
 
     IEnumerator getusername()
     {
+        Debug.Log(randomNumber);
         var query = ParseObject.GetQuery("User").WhereEqualTo("userNumber", randomNumber);
         var task = query.FindAsync();
         while (!task.IsCompleted) yield return null;
         foreach (var result in task.Result)
         {
             userID = result.Get<string>("UserName");
+            mon = result.Get<int>("Money");
         }
-
-        Debug.Log("enemyname=" + userID);
         StartBulid();
     }
     IEnumerator generateItems_firehydrant()
@@ -95,6 +97,7 @@ public class Fight_Objectload : MonoBehaviour {
     void random()
     {
         var randomInt = Random.Range(1, allUser);
+        //Debug.Log(allUser);
         randomNumber = randomInt;
 
     }
@@ -102,7 +105,6 @@ public class Fight_Objectload : MonoBehaviour {
     {
         if (userNumber != randomNumber)
         {
-
             StartCoroutine(generateItems_firehydrant());
             StartCoroutine(generateItems_bakerHouse());
             StartCoroutine(generateItems_lamp());

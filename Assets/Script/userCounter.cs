@@ -25,6 +25,5 @@ public class userCounter : MonoBehaviour {
         {
             counter = counter + 1;
         }
-        Debug.Log("totalUser=" + counter);
     }
 }

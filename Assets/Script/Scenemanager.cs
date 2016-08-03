@@ -6,13 +6,16 @@ public class Scenemanager : MonoBehaviour {
     public int userNumber;
     GameObject allUser;
     public int counter;
+    GameObject getLevel;
+    public int nowLevel;
+
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
     }
     // Use this for initialization
     void Start () {
-	
+
 	}
     public void Save() {
         userNum = GameObject.Find("Main Camera");
@@ -22,6 +25,7 @@ public class Scenemanager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-
+        getLevel = GameObject.Find("Main Camera");
+        nowLevel = getLevel.GetComponent<NowLevel>().level;
     }
 }
