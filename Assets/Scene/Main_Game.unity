@@ -1595,17 +1595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48a94cfba1fa324bb31748c871e9d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &713688265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 713688252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24a144a6613686748b7ea4b054bf2556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &826970440
 Prefab:
   m_ObjectHideFlags: 0
@@ -2303,6 +2292,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11406774, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
+      propertyPath: fightbutton
+      value: 
+      objectReference: {fileID: 1572079151}
     m_RemovedComponents:
     - {fileID: 11414818, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a866d9e8caa33b14fbdb0c8a8977ee79, type: 2}

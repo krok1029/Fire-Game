@@ -20,7 +20,7 @@ public class Fight_Damage : MonoBehaviour {
         nowLevel = getLevel.GetComponent<Scenemanager>().nowLevel;
         switch (nowLevel) {
             case 1:
-                fireTimes = 5000;
+                fireTimes = 50;
                 break;
             case 2:
                 fireTimes = 100;

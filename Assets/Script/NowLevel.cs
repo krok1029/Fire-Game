@@ -56,7 +56,7 @@ public class NowLevel : MonoBehaviour
         }
         lv.text = "UserName: "+userID+"\nLv. " + level.ToString();
         levelnum.text = level.ToString();
-        StartCoroutine(online());
+       // StartCoroutine(online());
     }
     public void Save()
     {
@@ -99,6 +99,7 @@ public class NowLevel : MonoBehaviour
         gameObject["userNumber"] = userValue;
         gameObject["Money"] = money.money;
         gameObject["SaveTime"] = DateTime.Now;
+
         Task saveTask = gameObject.SaveAsync();
         Debug.Log("SAVE OK");
     }
@@ -114,7 +115,6 @@ public class NowLevel : MonoBehaviour
             users = result.Get<int>("userNumber");
             money.money = result.Get<int>("Money");
             loadtime = result.Get<DateTime>("SaveTime");
-
             if (users != 0)
             {
                 userValue = users;
@@ -123,19 +123,6 @@ public class NowLevel : MonoBehaviour
             setlevelText();
         }
     }
-    IEnumerator online()
-    {
-        ParseObject gameObject = new ParseObject("Online");
-        var query = ParseObject.GetQuery("Online").WhereEqualTo("UserName", userID);
-        var task = query.FindAsync();
-        while (!task.IsCompleted) yield return null;
-        foreach (var result in task.Result)
-        {
-            result.DeleteAsync();          
-        }
-        gameObject["online"] = true;
-        gameObject["UserName"] = userID;
-        Task saveTask = gameObject.SaveAsync();
-    }
+  
 }
 

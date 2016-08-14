@@ -8,7 +8,7 @@ public class Scenemanager : MonoBehaviour {
     public int counter;
     GameObject getLevel;
     public int nowLevel;
-
+    int n = 0;
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);

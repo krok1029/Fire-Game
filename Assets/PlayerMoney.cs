@@ -9,11 +9,6 @@ public class PlayerMoney : MonoBehaviour {
     int getmoney;
 	// Use this for initialization
 	void Start () {
-        var sceneManager = GameObject.Find("SceneManager2");
-        if (null != sceneManager)
-        {
-            money += GameObject.Find("SceneManager2").GetComponent<SceneManager2>().getmoney;
-        }
     }
 	
 	// Update is called once per frame

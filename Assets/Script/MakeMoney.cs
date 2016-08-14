@@ -7,15 +7,15 @@ public class MakeMoney : MonoBehaviour {
     int getmoney=0;
     public int getmoneylimit = 100;
     int starttime;
-    
+    NowLevel userId;
     // Use this for initialization
     void Start () {
+        
         money = GameObject.Find("Main Camera").GetComponent<PlayerMoney>();
-        var sceneManager=GameObject.Find("SceneManager2");
+       /* var sceneManager=GameObject.Find("SceneManager2");
         if (null == sceneManager)
         {
             starttime = 1;
-            Debug.Log("StartTime=null"); 
         }
         else
         {
@@ -24,7 +24,7 @@ public class MakeMoney : MonoBehaviour {
         if (this.name == "Baker_house (Clone)")
         {
             InvokeRepeating("StartMakeMoney", starttime, 0f);
-        }
+        }*/
     }
     void OnMouseDown()
     {

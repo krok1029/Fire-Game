@@ -15,7 +15,6 @@ public class SceneManager2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        getmoney = GameObject.Find("Main Camera").GetComponent<SelfSavingTimer>().getmoney;
-        brokenRate = (int)GameObject.Find("Main Camera").GetComponent<SelfSavingTimer>().brokenRate;
+     //   brokenRate = (int)GameObject.Find("Main Camera").GetComponent<SelfSavingTimer>().brokenRate;
     }
 }
