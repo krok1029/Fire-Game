@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using Parse;
+using System.Threading.Tasks;
+using System;
 public class SelfSavingTimer : MonoBehaviour
 {
     public float time;
+
     public Text emeryname;
     public Text timerCountDown;
     public Text GameOver;
@@ -21,23 +24,29 @@ public class SelfSavingTimer : MonoBehaviour
     public int enemymoney;
     public int getmoney;
     public Text getMoney;
-    Fight_Objectload enemyID;//對手的ID
+    Fight_Objectload getID;//對手的ID
+    SceneManager2 broken_rate;
 
     void Start()
     {
-        time = 30.0f;
+        broken_rate = GameObject.Find("SceneManager2").GetComponent<SceneManager2>();//
+        getID = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>();//拿到對手跟玩家的名字和號碼
+        time = 10.0f;
+        
     }
 
     void Update()
     {
-        
         if (emeryname.text.ToString() != "Searching...")
         {
             if (GameObject.Find("Lamp(Clone)") != null || GameObject.Find("Baker_house (Clone)") != null || GameObject.Find("Fire_Hydrant(Clone)") != null)
             {
                 if (time > 0)
                 {
-                    time -= Time.deltaTime;
+                    float tfloat = Mathf.Round(Time.deltaTime * 100f) / 100f;
+                    Debug.Log("tf" + tfloat);
+                   time -= tfloat;
+                    time = Mathf.Round(time * 100f) / 100f;
                 }
                 else
                 {
@@ -51,16 +60,10 @@ public class SelfSavingTimer : MonoBehaviour
                     buildBreak();
                     manCount();
                     moneyget();
+                    StartCoroutine(losterlostMoney());
+                    StartCoroutine(winnergetMoney());
+                    n = true;
                 }
-            }
-            if (GameObject.Find("Lamp(Clone)") == null && GameObject.Find("Baker_house (Clone)") == null && GameObject.Find("Fire_Hydrant(Clone)") == null && time < 30f && n==false)
-            {
-                GameOver.text = "You Win!!";
-                BackButton.SetActive(true);
-                BackImage.SetActive(true);
-                buildBreak();
-                manCount();
-                moneyget();
             }
         }
         timerCountDown.text = time.ToString();
@@ -75,11 +78,10 @@ public class SelfSavingTimer : MonoBehaviour
         }
         brokenRate = 1 - (totalhealth / (250 * (health.Length-3)));
         brokenRateReport.text = "  建築損壞度 : " + brokenRate*100 + "% ";
-        n = true;
+        broken_rate.brokenRate = (int)brokenRate * 100;
     }
     void manCount()
     {
-        enemyID= GameObject.Find("Main Camera").GetComponent<Fight_Objectload>();
         manhealth = GameObject.FindGameObjectsWithTag("Man");
         for (int i = 0; i < manhealth.Length; i++)
         {
@@ -98,9 +100,39 @@ public class SelfSavingTimer : MonoBehaviour
     }
     void moneyget()//得到金錢公式==對手現在金錢X(2%輕傷人數+4%中度人數+5%重度人數+10%死亡人數)/2
     {
+        getID = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>();//拿到對手跟玩家的名字和號碼
         enemymoney = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>().mon;
         getmoney = enemymoney * (2 * hurt[1] + 4 * hurt[2] + 5 * hurt[3] + 1 * hurt[4]+(int)brokenRate*100 ) / 200;
         getMoney.text = "得到金錢 : " + getmoney;
+        
+    }
+    IEnumerator winnergetMoney()
+    {
+        ParseObject gameObject = new ParseObject("User");
+        var query = ParseObject.GetQuery("User").WhereEqualTo("userNumber", getID.userNumber);
+        var task = query.FindAsync();
+        while (!task.IsCompleted) yield return null;
+        foreach (var result in task.Result)
+        {
+            result["Money"] = result.Get<int>("Money") + getmoney;
+            Debug.Log(result["Money"] + "EEERERERERERERER");
+            Task saveTask2 = result.SaveAsync();
+        }
+        Debug.Log("winer:" + getID.userNumber);
+    }
+    IEnumerator losterlostMoney()
+    {
+        ParseObject gameObject = new ParseObject("User");
+        var query = ParseObject.GetQuery("User").WhereEqualTo("UserName", getID.userID);
+        var task = query.FindAsync();
+        while (!task.IsCompleted) yield return null;
+        foreach (var result in task.Result)
+        {
+            result["Money"] = result.Get<int>("Money") - getmoney;
+            result["StopMoneyTime"] = brokenRate * 100;
+            Task saveTask2 = result.SaveAsync();
+            Debug.Log("lost"+ result["Money"]);
+        }
         
     }
 }

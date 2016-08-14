@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System;
 
 
-public class BuildObject_FireHydrant : MonoBehaviour
+public class BuildObject_Water : MonoBehaviour
 {
     public GameObject madeObject;
     int objectLimit;
@@ -22,7 +22,7 @@ public class BuildObject_FireHydrant : MonoBehaviour
         buildmoney = GameObject.Find("Main Camera").GetComponent<PlayerMoney>();
         objectID = currentObjectID;
         currentObjectID++;
-        vendercounter = PlayerPrefs.GetInt("ObjectInt_FireHydrant" + objectID.ToString());
+        vendercounter = PlayerPrefs.GetInt("ObjectInt_Water" + objectID.ToString());
         levelNum = GameObject.Find("Main Camera");
         levelnumber = levelNum.GetComponent<NowLevel>().level;
         objectLimit = levelnumber;
@@ -54,7 +54,7 @@ public class BuildObject_FireHydrant : MonoBehaviour
     }
     public void counterSave()
     {
-        PlayerPrefs.SetInt("ObjectInt_FireHydrant" + objectID.ToString(), vendercounter);
+        PlayerPrefs.SetInt("ObjectInt_Water" + objectID.ToString(), vendercounter);
     }
 
 }

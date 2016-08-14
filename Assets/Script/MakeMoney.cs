@@ -20,11 +20,11 @@ public class MakeMoney : MonoBehaviour {
         else
         {
             starttime = GameObject.Find("SceneManager2").GetComponent<SceneManager2>().brokenRate*60;
-        }
+        }*/
         if (this.name == "Baker_house (Clone)")
         {
-            InvokeRepeating("StartMakeMoney", starttime, 0f);
-        }*/
+            InvokeRepeating("StartMakeMoney", 1f, 0f);
+        }
     }
     void OnMouseDown()
     {

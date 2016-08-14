@@ -838,7 +838,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 100, y: -15}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 654.3, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503960786
 MonoBehaviour:
@@ -1307,6 +1307,48 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25,
     type: 2}
   m_PrefabInternal: {fileID: 452919369}
+--- !u!1001 &950701300
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 170.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 80.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 495404, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5699e7f64e5571841a6c1b36aed3e70a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &993156858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenRate: 0
+  getmoney: 0
 --- !u!4 &1018874745
 Transform:
   m_ObjectHideFlags: 0
@@ -2479,7 +2522,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
       propertyPath: lengthInSec
@@ -2555,7 +2598,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 3.54
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
       propertyPath: InitialModule.startLifetime.maxCurve.m_RotationOrder
@@ -2563,7 +2606,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
       propertyPath: InitialModule.startLifetime.minCurve.m_Curve.Array.data[0].value
-      value: 0.7288135
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800008, guid: c466276509f8b40a59f02d115254fc25, type: 2}
       propertyPath: InitialModule.startLifetime.minCurve.m_RotationOrder
@@ -3333,6 +3376,7 @@ MonoBehaviour:
   madeObject_bakerHouse: {fileID: 778839287}
   userID: 
   userNumber: 0
+  PlayerId: 
   EmeryNameText: {fileID: 1259455410}
   mon: 0
 --- !u!1 &1895711269
