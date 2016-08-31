@@ -7,7 +7,7 @@ using System;
 
 public class NowLevel : MonoBehaviour
 {
-    public int level = 0;
+    public int level;
     public GameObject lampButton;
     public GameObject fireHydrantButton;
     public GameObject WaterButton;
@@ -21,9 +21,12 @@ public class NowLevel : MonoBehaviour
     public TimeSpan timediffer;
     public int totaltime;
     PlayerMoney money;
+    Scenemanager userNumber;
+    int[] cost = new int[3];
 
     void Start()
     {
+        level = 0;
         money = GameObject.Find("Main Camera").GetComponent<PlayerMoney>();
         if (PlayerPrefsX.GetBool("login"))
         {
@@ -38,8 +41,18 @@ public class NowLevel : MonoBehaviour
     }
     public void levelUp()
     {
-        level = level + 1;
-        setlevelText();
+        cost[0] = 200;
+        cost[1] = 300;
+        cost[2] = 500;
+        int fakeLv;
+        fakeLv = level;
+        if (level >= 3) { fakeLv = 3; }
+        if (money.money - cost[fakeLv-1] >= 0)
+        {
+            level = level + 1;
+            money.money -= cost[fakeLv - 1];
+            setlevelText();
+        }
     }
     void setlevelText()
     {
@@ -56,9 +69,8 @@ public class NowLevel : MonoBehaviour
             lampButton.SetActive(true);
             WaterButton.SetActive(true);
         }
-        lv.text = "UserName: "+userID+"\nLv. " + level.ToString();
+        lv.text = "Lv. " + level.ToString()+"  " + userID ;
         levelnum.text = level.ToString();
-       // StartCoroutine(online());
     }
     public void Save()
     {
@@ -122,9 +134,9 @@ public class NowLevel : MonoBehaviour
                 userValue = users;
             }
             MoneyCount();
-            setlevelText();
         }
+        setlevelText();
+        PlayerPrefs.SetInt("userNumber", userValue);
     }
-  
 }
 

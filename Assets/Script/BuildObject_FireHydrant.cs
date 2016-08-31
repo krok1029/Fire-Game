@@ -22,7 +22,7 @@ public class BuildObject_FireHydrant : MonoBehaviour
         buildmoney = GameObject.Find("Main Camera").GetComponent<PlayerMoney>();
         objectID = currentObjectID;
         currentObjectID++;
-        vendercounter = PlayerPrefs.GetInt("ObjectInt_FireHydrant" + objectID.ToString());
+        vendercounter = Resources.FindObjectsOfTypeAll(typeof(BuildObject_FireHydrant)).Length - 3;
         levelNum = GameObject.Find("Main Camera");
         levelnumber = levelNum.GetComponent<NowLevel>().level;
         objectLimit = levelnumber;
@@ -31,6 +31,7 @@ public class BuildObject_FireHydrant : MonoBehaviour
     {
         levelnumber = levelNum.GetComponent<NowLevel>().level;
         objectLimit = levelnumber;
+        vendercounter = Resources.FindObjectsOfTypeAll(typeof(BuildObject_FireHydrant)).Length - 3;
     }
     public void makeObject()
     {
@@ -47,7 +48,6 @@ public class BuildObject_FireHydrant : MonoBehaviour
                 clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
                 clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 0, 4.7f), 1f);
                 clone.transform.Rotate(new Vector3(-90, 0, 0));
-                vendercounter = vendercounter + 1;
             }
         }
         else { Debug.Log("money is not enough"); }

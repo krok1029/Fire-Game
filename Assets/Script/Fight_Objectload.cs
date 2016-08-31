@@ -18,10 +18,12 @@ public class Fight_Objectload : MonoBehaviour {
     public int mon;
     SelfSavingTimer money;
     ArrayList users = new ArrayList();
+    public int lv;
+
     public void Start()
     {
-        userNum = GameObject.Find("SceneManager");
-        userNumber = userNum.GetComponent<Scenemanager>().userNumber;
+        userNumber = PlayerPrefs.GetInt("userNumber");
+        Debug.Log("@@@@@" + userNumber);
         StartCoroutine(getallUserValue());
     }
     IEnumerator getallUserValue()
@@ -52,6 +54,7 @@ public class Fight_Objectload : MonoBehaviour {
         foreach (var result in task.Result)
         {
             mon = result.Get<int>("Money");
+            lv = result.Get<int>("Level");
         }
 
     }

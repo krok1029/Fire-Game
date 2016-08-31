@@ -45,8 +45,8 @@ public class BuildObject_Water : MonoBehaviour
             else
             {
                 clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
-                clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 0, 4.7f), 1f);
-                clone.transform.Rotate(new Vector3(-90, 0, 0));
+                clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 10, 4.7f), 1f);
+                clone.transform.Rotate(new Vector3(85, 180, 0));
                 vendercounter = vendercounter + 1;
             }
         }

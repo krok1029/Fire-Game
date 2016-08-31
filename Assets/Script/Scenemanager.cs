@@ -15,7 +15,6 @@ public class Scenemanager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-
 	}
     public void Save() {
         userNum = GameObject.Find("Main Camera");

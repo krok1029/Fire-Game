@@ -15,7 +15,7 @@ public class ObjectSave_Water : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        save = PlayerPrefsX.GetBool("save");
+        save = PlayerPrefsX.GetBool("save"+objectID_Water);
         userID = PlayerPrefs.GetString("UserID");
         objectID_Water = currentObjectID;
         currentObjectID++;
@@ -47,7 +47,7 @@ public class ObjectSave_Water : MonoBehaviour
             result["GameObjectId"] = objectID_Water;
             Task saveTask2 = result.SaveAsync();
             save = true;
-            PlayerPrefsX.SetBool("save", true);
+            PlayerPrefsX.SetBool("save"+objectID_Water, true);
         }
         if (save == false)
         {

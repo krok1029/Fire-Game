@@ -14,7 +14,7 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
 
     // Use this for initialization
     void Start(){
-        save = PlayerPrefsX.GetBool("save");
+        save = PlayerPrefsX.GetBool("save"+objectID_firehydrant);
         userID = PlayerPrefs.GetString("UserID");
         objectID_firehydrant = currentObjectID;
         currentObjectID++;
@@ -44,7 +44,7 @@ public class ObjectSave_FireHydrant : MonoBehaviour{
             result["GameObjectId"] = objectID_firehydrant;
             Task saveTask2 = result.SaveAsync();
             save = true;
-            PlayerPrefsX.SetBool("save", true);
+            PlayerPrefsX.SetBool("save"+objectID_firehydrant, true);
         }
         if (save == false)
         {

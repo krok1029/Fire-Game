@@ -44,7 +44,6 @@ public class SelfSavingTimer : MonoBehaviour
                 if (time > 0)
                 {
                     float tfloat = Mathf.Round(Time.deltaTime * 100f) / 100f;
-                    Debug.Log("tf" + tfloat);
                    time -= tfloat;
                     time = Mathf.Round(time * 100f) / 100f;
                 }
@@ -115,7 +114,6 @@ public class SelfSavingTimer : MonoBehaviour
         foreach (var result in task.Result)
         {
             result["Money"] = result.Get<int>("Money") + getmoney;
-            Debug.Log(result["Money"] + "EEERERERERERERER");
             Task saveTask2 = result.SaveAsync();
         }
         Debug.Log("winer:" + getID.userNumber);

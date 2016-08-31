@@ -14,7 +14,7 @@ public class ObjectSave_Lamp : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        save = PlayerPrefsX.GetBool("save");
+        save = PlayerPrefsX.GetBool("save"+objectID_lamp);
         userID = PlayerPrefs.GetString("UserID");
         objectID_lamp = currentObjectID;
         currentObjectID++;
@@ -45,7 +45,7 @@ public class ObjectSave_Lamp : MonoBehaviour
             result["GameObjectId"] = objectID_lamp;
             Task saveTask2 = result.SaveAsync();
             save = true;
-            PlayerPrefsX.SetBool("save", true);
+            PlayerPrefsX.SetBool("save"+objectID_lamp, true);
         }
         if (save == false)
         {

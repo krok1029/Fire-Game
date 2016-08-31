@@ -14,13 +14,16 @@ public class ObjectSave : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        save=PlayerPrefsX.GetBool("save");
+        save=PlayerPrefsX.GetBool("save" + objectID_baker_house);
         userID = PlayerPrefs.GetString("UserID");
         objectID_baker_house = currentObjectID;
         currentObjectID++;
-        saveButton.onClick.AddListener(Save);
+        
+       saveButton.onClick.AddListener(Save);
+        //Object prefab = UnityEditor.EditorUtility.CreateEmptyPrefab("Assets/Baker House/Prefabs/Barrel.prefab");
     }
-    
+
+
     public void Save()
     {
         if (this.gameObject.name == "Baker_house (Clone)")///原本的不會存
@@ -46,7 +49,7 @@ public class ObjectSave : MonoBehaviour {
             result["GameObjectId"] = objectID_baker_house;
             Task saveTask2 = result.SaveAsync();
             save = true;
-            PlayerPrefsX.SetBool("save", true);
+            PlayerPrefsX.SetBool("save"+objectID_baker_house, true);
         }
         if (save == false)
         {

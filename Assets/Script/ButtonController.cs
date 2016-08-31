@@ -40,7 +40,6 @@ public class ButtonController : MonoBehaviour {
         buildbutton.SetActive(false);
         fightbutton.SetActive(false);
         StartCoroutine(cannotFight());
-        Debug.Log("!!!~~~!!!" + userID.userID);
     }
 
 
@@ -65,9 +64,7 @@ public class ButtonController : MonoBehaviour {
     }
     public void logout()
     {
-        PlayerPrefs.DeleteKey("login");
-        PlayerPrefs.DeleteKey("UserID");
-        PlayerPrefs.DeleteKey("save");
+        PlayerPrefs.DeleteAll();
         Application.Quit();
     }
     public void surrdener() {
@@ -102,6 +99,7 @@ public class ButtonController : MonoBehaviour {
             result["AbleToFight"] = false;
             Task saveTask = result.SaveAsync();
         }
+        
     }
     IEnumerator canFight()
     {
@@ -113,7 +111,6 @@ public class ButtonController : MonoBehaviour {
         {
             result["AbleToFight"] = true;
             Task saveTask = result.SaveAsync();
-            Debug.Log("can");
         }
     }
 }

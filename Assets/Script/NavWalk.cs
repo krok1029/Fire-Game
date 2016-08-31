@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class NavWalk : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class NavWalk : MonoBehaviour
     int isfire = 0;
     int directiontop = 0;
     int directiondown = 0;
+    public Button editbutton;
+    public Button savebutton;
 
 
     void Awake()
@@ -30,7 +33,8 @@ public class NavWalk : MonoBehaviour
 
     void Start()
     {
-
+        editbutton.onClick.AddListener(kill2);
+        savebutton.onClick.AddListener(kill3);
         //direction = Random.Range (0, 4);
 
         //Debug.Log ("time");
@@ -197,6 +201,8 @@ public class NavWalk : MonoBehaviour
                 break;
 
         }
+
+        
     }
 
     void GotoNext()
@@ -209,10 +215,14 @@ public class NavWalk : MonoBehaviour
         destpoint = (destpoint + 1) % (walkscript.points.Length);
 
     }
+    public void kill2()
+    {
+        model.GetComponent<Renderer>().enabled = false;
+    }
 
-
-
-
-
+    public void kill3()
+    {
+        model.GetComponent<Renderer>().enabled = true;
+    }
 }
 
