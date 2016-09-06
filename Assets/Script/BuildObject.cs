@@ -14,6 +14,8 @@ public class BuildObject : MonoBehaviour
     GameObject levelNum;
     public int buildCost;
     PlayerMoney buildmoney;
+    public Text consoleText;
+    public GameObject console;
 
     void Start()
     {
@@ -32,17 +34,20 @@ public class BuildObject : MonoBehaviour
     {
         if (buildmoney.money - buildCost > 0)
         {
-            buildmoney.money -= buildCost;
+           
             GameObject clone;
             if (counter >= objectLimit)
             {
+                consoleText.text = "Money is not enough";
+                console.SetActive(true);
                 CancelInvoke();
             }
             else
             {
+                buildmoney.money -= buildCost;
                 clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
                 clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 5.0f, 4.7f), 1f);
-                clone.transform.Rotate(new Vector3(0, 0, 0));
+                clone.transform.Rotate(new Vector3(-90, 0, 0));
                 counter = counter + 1;
             }
         }

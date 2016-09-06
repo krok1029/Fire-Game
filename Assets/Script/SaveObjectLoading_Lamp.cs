@@ -36,6 +36,7 @@ public class SaveObjectLoading_Lamp : MonoBehaviour
         {
             clone = Instantiate(madeObject, new Vector3(result.Get<float>("PositionX"), 5f, result.Get<float>("PositionZ")), new Quaternion(0, 0, 0, 0)) as GameObject;
             clone.transform.Translate(new Vector3(0, 0f, 0));
+            clone.transform.Rotate(new Vector3(-60, 0, 0)); 
         }
 
     }

@@ -16,11 +16,8 @@ public class ButtonController : MonoBehaviour {
     bool loginbool = false;
     public Text levelnum;
     NowLevel userID;
-
-
-    void Awake() {
-
-    }
+    public GameObject consoleButton;
+    public GameObject console;
 
     void Start()
     {
@@ -41,8 +38,6 @@ public class ButtonController : MonoBehaviour {
         fightbutton.SetActive(false);
         StartCoroutine(cannotFight());
     }
-
-
     public void disappear()
     {
         buildList.SetActive(false);
@@ -112,6 +107,10 @@ public class ButtonController : MonoBehaviour {
             result["AbleToFight"] = true;
             Task saveTask = result.SaveAsync();
         }
+    }
+    public void consoleDisappear()
+    {
+        console.SetActive(false);
     }
 }
 

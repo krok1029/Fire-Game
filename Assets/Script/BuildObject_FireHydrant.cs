@@ -16,6 +16,8 @@ public class BuildObject_FireHydrant : MonoBehaviour
     GameObject levelNum;
     public int buildCost;
     PlayerMoney buildmoney;
+    public Text consoleText;
+    public GameObject console;
 
     void Start()
     {
@@ -37,14 +39,17 @@ public class BuildObject_FireHydrant : MonoBehaviour
     {
         if (buildmoney.money - buildCost > 0)
         {
-            buildmoney.money -= buildCost;
             GameObject clone;
             if (vendercounter >= objectLimit)
             {
+                console.SetActive(true);
+                consoleText.text = "Money is not enough";
                 CancelInvoke();
+                
             }
             else
             {
+                buildmoney.money -= buildCost;
                 clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
                 clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 0, 4.7f), 1f);
                 clone.transform.Rotate(new Vector3(-90, 0, 0));

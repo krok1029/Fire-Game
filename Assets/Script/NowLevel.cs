@@ -23,6 +23,8 @@ public class NowLevel : MonoBehaviour
     PlayerMoney money;
     Scenemanager userNumber;
     int[] cost = new int[3];
+    public Text consoleText;
+    public GameObject console;
 
     void Start()
     {
@@ -47,11 +49,16 @@ public class NowLevel : MonoBehaviour
         int fakeLv;
         fakeLv = level;
         if (level >= 3) { fakeLv = 3; }
-        if (money.money - cost[fakeLv-1] >= 0)
+        if (money.money - cost[fakeLv - 1] >= 0)
         {
             level = level + 1;
             money.money -= cost[fakeLv - 1];
             setlevelText();
+        }
+        else
+        {
+            consoleText.text = "Money is not enough";
+            console.SetActive(true);
         }
     }
     void setlevelText()
