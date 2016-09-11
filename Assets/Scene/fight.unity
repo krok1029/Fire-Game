@@ -1240,8 +1240,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867550530}
-        m_MethodName: surrdener
+      - m_Target: {fileID: 1867550527}
+        m_MethodName: surrender
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4789,7 +4789,6 @@ MonoBehaviour:
   level: 0
   lampButton: {fileID: 0}
   fireHydrantButton: {fileID: 0}
-  WaterButton: {fileID: 0}
   userID: 
   username: {fileID: 0}
   levelnum: {fileID: 0}
@@ -4836,6 +4835,7 @@ MonoBehaviour:
   enemymoney: 0
   getmoney: 0
   getMoney: {fileID: 1843149071}
+  surrenderButton: {fileID: 0}
 --- !u!114 &1867550530 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11406774, guid: a866d9e8caa33b14fbdb0c8a8977ee79,

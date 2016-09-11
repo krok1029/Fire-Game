@@ -46,9 +46,8 @@ public class BuildObject_BakerHouse : MonoBehaviour
             GameObject clone;
             if (officecounter >= objectLimit)
             {
-                consoleText.text = "Money is not enough";
+                consoleText.text = "Your level is not enough \n Please level up";
                 console.SetActive(true);
-                CancelInvoke();
             }
             else
             {
@@ -58,6 +57,10 @@ public class BuildObject_BakerHouse : MonoBehaviour
                 clone.transform.Rotate(new Vector3(-90, 0, 0));
             }
         }
-        else { Debug.Log("money is not enough"); }
+        else
+        {
+            consoleText.text = "Money is not enough";
+            console.SetActive(true);
+        }
     }
 }

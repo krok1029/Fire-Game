@@ -22,7 +22,7 @@ public class BuildObject : MonoBehaviour
         buildmoney = GameObject.Find("Main Camera").GetComponent<PlayerMoney>();
         objectID = currentObjectID;
         currentObjectID++;
-        counter = PlayerPrefs.GetInt("ObjectInt_Lamp" + objectID.ToString());
+        counter = Resources.FindObjectsOfTypeAll(typeof(BuildObject)).Length - 3;
         levelNum = GameObject.Find("Main Camera");
         objectLimit = levelNum.GetComponent<NowLevel>().level;
     }
@@ -38,9 +38,9 @@ public class BuildObject : MonoBehaviour
             GameObject clone;
             if (counter >= objectLimit)
             {
-                consoleText.text = "Money is not enough";
+                
+                consoleText.text = "Your level is not enough \n Please level up";
                 console.SetActive(true);
-                CancelInvoke();
             }
             else
             {
@@ -48,15 +48,15 @@ public class BuildObject : MonoBehaviour
                 clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
                 clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 0f, 4.7f), 1f);
                 clone.transform.Rotate(new Vector3(-90, 0, 0));
-                counter = counter + 1;
+                counter = Resources.FindObjectsOfTypeAll(typeof(BuildObject)).Length - 3;
             }
         }
-        else { Debug.Log("money is not enough"); }
+        else
+        {
+            consoleText.text = "Money is not enough";
+            console.SetActive(true);
+        }
     }
-    public void counterSave()
-    {
-        PlayerPrefs.SetInt("ObjectInt_Lamp" + objectID.ToString(), counter);
-    }
-   
+
 
 }

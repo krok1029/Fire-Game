@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
 
         officenum = off.GetComponent<BuildObject_BakerHouse>().officecounter;
         vendernum = ven.GetComponent<BuildObject_FireHydrant>().vendercounter;
-        number = (1* officenum) + (1 * vendernum);
+        number = (2* officenum) + (1 * vendernum);
         // Debug.Log("number=" + number);
 
         //Debug.Log (number);

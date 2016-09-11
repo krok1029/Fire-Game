@@ -26,6 +26,7 @@ public class SelfSavingTimer : MonoBehaviour
     public Text getMoney;
     Fight_Objectload getID;//對手的ID
     SceneManager2 broken_rate;
+    public Button surrenderButton;
 
     void Start()
     {
@@ -41,10 +42,10 @@ public class SelfSavingTimer : MonoBehaviour
         {
             if (GameObject.Find("Lamp(Clone)") != null || GameObject.Find("Baker_house (Clone)") != null || GameObject.Find("Fire_Hydrant(Clone)") != null)
             {
-                if (time > 0)
+                if (time > 0&&n==false)
                 {
                     float tfloat = Mathf.Round(Time.deltaTime * 100f) / 100f;
-                   time -= tfloat;
+                    time -= tfloat;
                     time = Mathf.Round(time * 100f) / 100f;
                 }
                 else
@@ -53,20 +54,24 @@ public class SelfSavingTimer : MonoBehaviour
                 }
                 if (time == 0 && n==false)
                 {
-                    GameOver.text = "time's up \n    GameOver!!";
-                    BackButton.SetActive(true);
-                    BackImage.SetActive(true);
-                    buildBreak();
-                    manCount();
-                    moneyget();
-                    StartCoroutine(losterlostMoney());
-                    StartCoroutine(winnergetMoney());
-                    n = true;
+                    surrender();
                 }
             }
         }
         timerCountDown.text = time.ToString();
 
+    }
+    public void surrender()
+    {
+        n = true;
+        GameOver.text = "time's up \n    GameOver!!";
+        BackButton.SetActive(true);
+        BackImage.SetActive(true);
+        buildBreak();
+        manCount();
+        moneyget();
+        StartCoroutine(losterlostMoney());
+        StartCoroutine(winnergetMoney());
     }
     void buildBreak()
     {

@@ -58,7 +58,8 @@ public class NavWalk : MonoBehaviour
     {
         int alltype = GameObject.Find("Main Camera").GetComponent<NowLevel>().level;
         model.transform.rotation = Quaternion.Euler(-15, 180, 0);
-        //model.transform.Translate();
+        model.transform.position = new Vector3(model.transform.position.x, 0, model.transform.position.z);
+
 
         //Debug.Log (model.name + " : " + alltype);
         switch (alltype)

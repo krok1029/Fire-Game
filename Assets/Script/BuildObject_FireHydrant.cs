@@ -43,7 +43,7 @@ public class BuildObject_FireHydrant : MonoBehaviour
             if (vendercounter >= objectLimit)
             {
                 console.SetActive(true);
-                consoleText.text = "Money is not enough";
+                consoleText.text = "Your level is not enough \n Please level up";
                 CancelInvoke();
                 
             }
@@ -55,11 +55,11 @@ public class BuildObject_FireHydrant : MonoBehaviour
                 clone.transform.Rotate(new Vector3(-90, 0, 0));
             }
         }
-        else { Debug.Log("money is not enough"); }
-    }
-    public void counterSave()
-    {
-        PlayerPrefs.SetInt("ObjectInt_FireHydrant" + objectID.ToString(), vendercounter);
+        else
+        {
+            console.SetActive(true);
+            consoleText.text = "Money is not enough";
+        }
     }
 
 }
