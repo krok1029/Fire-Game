@@ -46,7 +46,7 @@ public class BuildObject : MonoBehaviour
             {
                 buildmoney.money -= buildCost;
                 clone = Instantiate(madeObject, Input.mousePosition, Quaternion.identity) as GameObject;
-                clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 5.0f, 4.7f), 1f);
+                clone.transform.position = Vector3.Slerp(Input.mousePosition, new Vector3(-5.5f, 0f, 4.7f), 1f);
                 clone.transform.Rotate(new Vector3(-90, 0, 0));
                 counter = counter + 1;
             }

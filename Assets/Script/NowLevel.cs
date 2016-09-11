@@ -10,7 +10,7 @@ public class NowLevel : MonoBehaviour
     public int level;
     public GameObject lampButton;
     public GameObject fireHydrantButton;
-    public GameObject WaterButton;
+  //  public GameObject WaterButton;
     public string userID;
     public Text username;
     public Text levelnum;
@@ -74,7 +74,7 @@ public class NowLevel : MonoBehaviour
         if (level >= 3)
         {
             lampButton.SetActive(true);
-            WaterButton.SetActive(true);
+        //    WaterButton.SetActive(true);
         }
         lv.text = "Lv. " + level.ToString()+"  " + userID ;
         levelnum.text = level.ToString();

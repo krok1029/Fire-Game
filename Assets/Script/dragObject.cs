@@ -17,8 +17,34 @@ public class dragObject : MonoBehaviour
        
         if (buildlist.activeInHierarchy)
         {
-            building.position += Vector3.right * Time.deltaTime * Input.GetAxis("Mouse X") * 200;
-            building.position += Vector3.forward * Time.deltaTime * Input.GetAxis("Mouse Y") * 200;
+            if (building.position.x <= 50 && building.position.x >= -50 && building.position.z <= 50 && building.position.z >= -50)
+            {
+                building.position += Vector3.right * Time.deltaTime * Input.GetAxis("Mouse X") * 200;
+                building.position += Vector3.forward * Time.deltaTime * Input.GetAxis("Mouse Y") * 200;
+            }
+            else
+            {
+                if (building.position.x > 50)
+                {
+                    building.position=new Vector3(45,building.position.y,building.position.z);
+                    Debug.Log("a");
+                }
+                if (building.position.x < -50)
+                {
+                    building.position = new Vector3(-45, building.position.y, building.position.z);
+                    Debug.Log("b");
+                }
+                if (building.position.z > 50)
+                {
+                    building.position = new Vector3(building.position.x, building.position.y, 45);
+                    Debug.Log("c");
+                }
+                if (building.position.z < -50)
+                {
+                    building.position = new Vector3(building.position.x, building.position.y, -45);
+                    Debug.Log("d");
+                }
+            }
             /* Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
              if (Physics.Raycast(ray, out rayHit))
              {

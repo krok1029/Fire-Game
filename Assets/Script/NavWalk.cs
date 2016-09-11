@@ -36,15 +36,10 @@ public class NavWalk : MonoBehaviour
         editbutton.onClick.AddListener(kill2);
         savebutton.onClick.AddListener(kill3);
         //direction = Random.Range (0, 4);
-
-        //Debug.Log ("time");
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         walkscript = GameObject.Find("Player").GetComponent<NavWalk>();
-
-
-
-
+        
         if (walkscript.walktype == 1)
         {
 
@@ -57,20 +52,13 @@ public class NavWalk : MonoBehaviour
         }
 
     }
-
-
-    void awake()
-    {
-
-    }
-
+    
 
     void Update()
     {
         int alltype = GameObject.Find("Main Camera").GetComponent<NowLevel>().level;
-        model.transform.rotation = Quaternion.Euler(0, 0, 0);
-
-
+        model.transform.rotation = Quaternion.Euler(-15, 180, 0);
+        //model.transform.Translate();
 
         //Debug.Log (model.name + " : " + alltype);
         switch (alltype)
@@ -217,12 +205,12 @@ public class NavWalk : MonoBehaviour
     }
     public void kill2()
     {
-        model.GetComponent<Renderer>().enabled = false;
+        model.GetComponentInChildren<Renderer>().enabled = false;
     }
 
     public void kill3()
     {
-        model.GetComponent<Renderer>().enabled = true;
+        model.GetComponentInChildren<Renderer>().enabled = true;
     }
 }
 

@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     GameObject off;
     GameObject ven;
     GameObject clone;
-
+    GameObject[] Players=new GameObject[5];
     ArrayList players = new ArrayList();
 
     void Awake()
@@ -42,13 +42,11 @@ public class PlayerManager : MonoBehaviour
 
         officenum = off.GetComponent<BuildObject_BakerHouse>().officecounter;
         vendernum = ven.GetComponent<BuildObject_FireHydrant>().vendercounter;
-        number = (3 * officenum) + (2 * vendernum);
-       // Debug.Log("number=" + number);
+        number = (1* officenum) + (1 * vendernum);
+        // Debug.Log("number=" + number);
 
         //Debug.Log (number);
         //number=3*( GameObject.Find("Main Camera").GetComponent<NowLevel>().level);
-
-
     }
 
 
@@ -65,9 +63,10 @@ public class PlayerManager : MonoBehaviour
         {
             // Find a random index between zero and one less than the number of spawn points.
             int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-
+            Players=GameObject.FindGameObjectsWithTag("Man");
+            int random=Random.Range(0,4);
             // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-            clone = Instantiate(Player, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
+            clone = Instantiate(Players[random], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
             i++;
         }
     }
