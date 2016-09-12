@@ -64,7 +64,6 @@ public class dragObject : MonoBehaviour
             building.position += new Vector3(0, 4, 0);
         }
     }
-
     void OnMouseUp()
     {
 

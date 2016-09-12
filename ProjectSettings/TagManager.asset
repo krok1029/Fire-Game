@@ -8,6 +8,7 @@ TagManager:
   - buildelement
   - Building
   - Man
+  - Fire
   layers:
   - Default
   - TransparentFX

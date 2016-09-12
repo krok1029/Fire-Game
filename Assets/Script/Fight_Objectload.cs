@@ -19,11 +19,13 @@ public class Fight_Objectload : MonoBehaviour {
     SelfSavingTimer money;
     ArrayList users = new ArrayList();
     public int lv;
+    public GameObject Player;
+    public Transform[] spawnPoints;
+    GameObject[] Players = new GameObject[5];
 
     public void Start()
     {
         userNumber = PlayerPrefs.GetInt("userNumber");
-        Debug.Log("@@@@@" + userNumber);
         StartCoroutine(getallUserValue());
     }
     IEnumerator getallUserValue()
@@ -81,6 +83,11 @@ public class Fight_Objectload : MonoBehaviour {
         {
             clone = Instantiate(madeObject_bakerHouse, new Vector3(result.Get<float>("PositionX"), result.Get<float>("PositionY"), result.Get<float>("PositionZ")), new Quaternion(0, 0, 0, 0)) as GameObject;
             clone.transform.Rotate(new Vector3(-90, 0, 0));
+
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+            Players = GameObject.FindGameObjectsWithTag("Man");
+            int random = Random.Range(0, 4);
+            clone = Instantiate(Players[random], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
         }
 
 
@@ -94,7 +101,12 @@ public class Fight_Objectload : MonoBehaviour {
         foreach (var result in task.Result)
         {
             clone = Instantiate(madeObject_lamp, new Vector3(result.Get<float>("PositionX"), result.Get<float>("PositionY"), result.Get<float>("PositionZ")), new Quaternion(0, 0, 0, 0)) as GameObject;
-            clone.transform.Rotate(new Vector3(0, 0, 0));
+            clone.transform.Rotate(new Vector3(-65, 0, 0));
+
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+            Players = GameObject.FindGameObjectsWithTag("Man");
+            int random = Random.Range(0, 4);
+            clone = Instantiate(Players[random], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation) as GameObject;
         }
 
     }

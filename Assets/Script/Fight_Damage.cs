@@ -69,8 +69,8 @@ public class Fight_Damage : MonoBehaviour {
                         if (objectHealth.ObjectHealth <= 0)
                         {
                             objectHealth.ObjectHealth = 0;
-                            rayHit.transform.position = new Vector3(200, 200, 200);
-                        }
+                        rayHit.transform.GetComponentInChildren<Renderer>().enabled = false;
+                    }
                     }
             }
             

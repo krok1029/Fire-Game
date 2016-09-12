@@ -3,14 +3,13 @@ using System.Collections;
 
 public class Water : MonoBehaviour
 {
-    GameObject fire;
-    GameObject water;
-    public ParticleSystem waterEffect;
+    public GameObject fire;
+    ParticleSystem waterEffect;
 
     void Awake()
     {
-        fire = GameObject.Find("Fire");
-        water = GameObject.Find("Water");
+      //  fire = GameObject.Find("Fire");
+        waterEffect = this.GetComponent<ParticleSystem>();
     }
 
     void OnTriggerEnter(Collider onfire)
@@ -18,7 +17,6 @@ public class Water : MonoBehaviour
         if (onfire.gameObject.tag == "Fire")
         {
             //water.SetActive (true);
-            Instantiate(waterEffect, new Vector3(3, 40, 3), Quaternion.Euler(85, 180, 0));
             waterEffect.Play();
 
             Destroy(onfire.gameObject);
@@ -30,12 +28,9 @@ public class Water : MonoBehaviour
     {
         if (onfire.gameObject.tag == "Fire")
         {
-            //water.SetActive (false);
-            //waterEffect.Stop();
 
         }
     }
 
 
 }
-
