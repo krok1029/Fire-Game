@@ -16,5 +16,6 @@ public class MoneyCounting : MonoBehaviour {
             moneya.money += moneyGet.totaltime / 1; //把存檔到下次打開的錢算出來加上去
             n = true;
         }
+        if (moneya.money > 100000) { moneya.money = 99999; }
     }
 }

@@ -41,7 +41,7 @@ public class Fight_Damage : MonoBehaviour {
         if (Input.GetButtonDown("Fire1") && time0 != 0 && fireTimes > fireCounter && Physics.Raycast(ray, out rayHit))
         {
                 fireCounter++;
-                Instantiate(fireEffect, rayHit.point, Quaternion.Euler(0, 0, 0));
+                Instantiate(fireEffect, new Vector3(rayHit.point.x, 0, rayHit.point.z), Quaternion.Euler(0, 0, 0));
                 fireEffect.Play();
                 fireEffect.Stop();
                 if (rayHit.transform.tag == "Building")
@@ -50,9 +50,10 @@ public class Fight_Damage : MonoBehaviour {
                         if (objectHealth != null)
                         {
                             objectHealth.ObjectHealth -= 30;
+                    Debug.Log("HP" + objectHealth.ObjectHealth);
                             if (objectHealth.ObjectHealth <= 0)
                             {
-                            Instantiate(explorsion, rayHit.point, Quaternion.Euler(0, 0, 0));
+                            Instantiate(explorsion, new Vector3(rayHit.point.x,0,rayHit.point.z), Quaternion.Euler(0, 0, 0));
                             objectHealth.ObjectHealth = 0;
                             rayHit.transform.position=new Vector3 (200,200,200);
                             }
@@ -66,7 +67,9 @@ public class Fight_Damage : MonoBehaviour {
                     if (objectHealth != null)
                     {
                         objectHealth.ObjectHealth -= 20;
-                        if (objectHealth.ObjectHealth <= 0)
+
+                    Debug.Log("HP" + objectHealth.ObjectHealth);
+                    if (objectHealth.ObjectHealth <= 0)
                         {
                             objectHealth.ObjectHealth = 0;
                         rayHit.transform.GetComponentInChildren<Renderer>().enabled = false;

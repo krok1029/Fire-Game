@@ -65,6 +65,7 @@ public class FightWalk : MonoBehaviour
     void Update()
     {
         int alltype = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>().lv;
+        Debug.Log("LV." + alltype);
         model.transform.rotation = Quaternion.Euler(0, 0, 0);
         model.transform.position = new Vector3(model.transform.position.x, 0, model.transform.position.z);
 
@@ -128,8 +129,8 @@ public class FightWalk : MonoBehaviour
                 }
 
                 break;
-
-            case 3:
+            default:
+           // case 3:
                 float firedist = (fire.transform.position - model.transform.position).magnitude;
                 if (firedist <= 20)
                 {
@@ -201,11 +202,11 @@ public class FightWalk : MonoBehaviour
 
 
 
-            default:
+            /*default:
                 if (navMeshAgent.remainingDistance < 6f)
                     GotoNext();
 
-                break;
+                break;*/
 
         }
     }

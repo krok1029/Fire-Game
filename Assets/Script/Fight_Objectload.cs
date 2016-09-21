@@ -101,7 +101,7 @@ public class Fight_Objectload : MonoBehaviour {
         foreach (var result in task.Result)
         {
             clone = Instantiate(madeObject_lamp, new Vector3(result.Get<float>("PositionX"), result.Get<float>("PositionY"), result.Get<float>("PositionZ")), new Quaternion(0, 0, 0, 0)) as GameObject;
-            clone.transform.Rotate(new Vector3(-65, 0, 0));
+            clone.transform.Rotate(new Vector3(0, 0, 0));
 
             int spawnPointIndex = Random.Range(0, spawnPoints.Length);
             Players = GameObject.FindGameObjectsWithTag("Man");
