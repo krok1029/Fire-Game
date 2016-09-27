@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+public class dragObject_FireHydrant : MonoBehaviour {
 
-public class dragObject : MonoBehaviour
-{
     public float speed = 20;
-    public Transform building ;
+    public Transform building;
     public Button backbutton;
     public Button buildbutton;
     public GameObject buildlist;
@@ -14,6 +13,7 @@ public class dragObject : MonoBehaviour
 
     void OnMouseDrag()
     {
+        Debug.Log("pos" + building.position);
         if (buildlist.activeInHierarchy)
         {
             if (building.position.x <= 50 && building.position.x >= -50 && building.position.z <= 50 && building.position.z >= -50)
@@ -25,7 +25,7 @@ public class dragObject : MonoBehaviour
             {
                 if (building.position.x > 50)
                 {
-                    building.position=new Vector3(45,building.position.y,building.position.z);
+                    building.position = new Vector3(45, building.position.y, building.position.z);
                     Debug.Log("a");
                 }
                 if (building.position.x < -50)
@@ -54,14 +54,14 @@ public class dragObject : MonoBehaviour
              }*/
 
         }
-      
+
     }
     void OnMouseDown()
     {
         if (buildlist.activeInHierarchy)
         {
             building.position += new Vector3(0, 4, 0);
-           
+
         }
     }
     void OnMouseUp()
@@ -70,12 +70,21 @@ public class dragObject : MonoBehaviour
         if (buildlist.activeInHierarchy)
         {
             building.position += new Vector3(0, -4, 0);
-            int x = ((int)building.position.x / 10) * 10;
+            
+            int x = (int)(Mathf.Round(building.position.x/5) ) * 5 ;
+            if (x > 0) { x = (x / 10) * 10+5 ; }
+            if (x < 0) x = (x / 10) * 10 -5;
+            if (x > 45) x = 45;
+            if (x < -45) x = -45;
             //Debug.Log("x=" + x);
-            int z = ((int)building.position.z / 10) * 10 - 2;
+            int z = (int)(Mathf.Round(building.position.z/5) ) * 5 ;
+            if (z > 0) z = (z / 10) * 10 +5;
+            if (z < 0) z = (z / 10) * 10 -5;
+            if (z > 45) z = 45;
+            if (z < -45) z = -45;
             //Debug.Log("z=" + z);
             building.position = new Vector3(x, 0, z);
         }
-       
+
     }
 }

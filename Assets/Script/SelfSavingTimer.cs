@@ -76,18 +76,24 @@ public class SelfSavingTimer : MonoBehaviour
     void buildBreak()
     {
         health = GameObject.FindGameObjectsWithTag("Building");
-        for (int i = 3; i < health.Length; i++)
+        for (int i =2; i < health.Length; i++)
         {
           totalhealth += health[i].GetComponent<Object_Health>().ObjectHealth;
         }
-        brokenRate = 1 - (totalhealth / (250 * (health.Length-3)));
+        Debug.Log("totalhp=" + totalhealth);
+
+        Debug.Log("totalhp2=" + (health.Length - 2));
+
+        Debug.Log("totalhp/!@#@#=" + totalhealth / (250 * (health.Length - 2)));
+        brokenRate = 1 - (totalhealth / (250 * (health.Length-2)));
+        Debug.Log("bro:"+brokenRate);
         brokenRateReport.text = "  建築損壞度 : " + brokenRate*100 + "% ";
         broken_rate.brokenRate = (int)brokenRate * 100;
     }
     void manCount()
     {
         manhealth = GameObject.FindGameObjectsWithTag("Man");
-        for (int i = 0; i < manhealth.Length; i++)
+        for (int i = 5; i < manhealth.Length; i++)
         {
             if (manhealth[i].GetComponent<Object_Health>().ObjectHealth == 100)
             { hurt[0] += 1; }

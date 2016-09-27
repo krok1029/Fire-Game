@@ -65,7 +65,7 @@ public class FightWalk : MonoBehaviour
     void Update()
     {
         int alltype = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>().lv;
-        Debug.Log("LV." + alltype);
+
         model.transform.rotation = Quaternion.Euler(0, 0, 0);
         model.transform.position = new Vector3(model.transform.position.x, 0, model.transform.position.z);
 

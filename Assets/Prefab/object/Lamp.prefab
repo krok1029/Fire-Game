@@ -8,13 +8,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414598}
-  - 33: {fileID: 3311144}
-  - 23: {fileID: 2310524}
   - 54: {fileID: 5494970}
   - 64: {fileID: 6441762}
-  - 114: {fileID: 11436244}
+  - 114: {fileID: 11490926}
   - 114: {fileID: 11463788}
   - 65: {fileID: 6515302}
+  - 23: {fileID: 2316608}
+  - 33: {fileID: 3335320}
+  - 114: {fileID: 11499844}
   m_Layer: 10
   m_Name: Lamp
   m_TagString: Building
@@ -28,13 +29,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131550}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 195.2, y: 5, z: -24.741}
-  m_LocalScale: {x: 13.210792, y: 101.62152, z: 121.94582}
+  m_LocalRotation: {x: -0.5735765, y: 0, z: 0, w: 0.819152}
+  m_LocalPosition: {x: 1000, y: 0.045635223, z: -16.77818}
+  m_LocalScale: {x: 3, y: 2, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2310524
+--- !u!23 &2316608
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -44,11 +45,10 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2a092d71b60b74047a65f8be4257bccd, type: 2}
-  - {fileID: 2100000, guid: 2a092d71b60b74047a65f8be4257bccd, type: 2}
+  - {fileID: 2100000, guid: 66c0994357ce14f569ad90c8b0fed791, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
+  m_UseLightProbes: 0
   m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
@@ -61,13 +61,13 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3311144
+--- !u!33 &3335320
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131550}
-  m_Mesh: {fileID: 4300000, guid: 3d6bbcd189757a542830a66d7138497e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 70d063f7291c34ab39d853935f871721, type: 3}
 --- !u!54 &5494970
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -91,10 +91,10 @@ MeshCollider:
   m_GameObject: {fileID: 131550}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: 3d6bbcd189757a542830a66d7138497e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 70d063f7291c34ab39d853935f871721, type: 3}
 --- !u!65 &6515302
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -107,22 +107,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.55, y: 0.12, z: -0.05}
   m_Center: {x: 0, y: 0, z: 0.020873582}
---- !u!114 &11436244
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2221da01469590f499c19e6f74fbd97a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  building: {fileID: 414598}
-  backbutton: {fileID: 0}
-  buildbutton: {fileID: 0}
-  buildlist: {fileID: 0}
 --- !u!114 &11463788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,6 +119,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveButton: {fileID: 0}
+--- !u!114 &11490926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3f2cde4b4130f4a976d604f785cdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  building: {fileID: 414598}
+  backbutton: {fileID: 0}
+  buildbutton: {fileID: 0}
+  buildlist: {fileID: 0}
+--- !u!114 &11499844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87993e6303f45cb4f860a9e657361f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  madeObject: {fileID: 131550}
+  levelnum: {fileID: 0}
+  buildCost: 100
+  consoleText: {fileID: 0}
+  console: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

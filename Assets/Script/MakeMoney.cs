@@ -28,8 +28,17 @@ public class MakeMoney : MonoBehaviour {
     }
     void OnMouseDown()
     {
-        money.money += getmoney;
-        getmoney = 0;
+        if (money.money + getmoney < 100000)
+        {
+            money.money += getmoney;
+            getmoney = 0;
+        }
+        else if (money.money + getmoney > 100000)
+        {
+            getmoney = 0;
+            money.money = 99999;
+        }
+
     }
     void StartMakeMoney()
     {
