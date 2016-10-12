@@ -32,7 +32,7 @@ public class SelfSavingTimer : MonoBehaviour
     {
         broken_rate = GameObject.Find("SceneManager2").GetComponent<SceneManager2>();//
         getID = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>();//拿到對手跟玩家的名字和號碼
-        time = 300f;
+        time = 30f;
         
     }
 

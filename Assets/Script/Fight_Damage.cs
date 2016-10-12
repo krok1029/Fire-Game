@@ -14,22 +14,23 @@ public class Fight_Damage : MonoBehaviour {
     public Text fireTimesLeft;
     public Button backbutton;
     public ParticleSystem explorsion;
+    public AudioSource mandead;
 
     void Start () {
         getLevel = GameObject.Find("SceneManager");
         nowLevel = getLevel.GetComponent<Scenemanager>().nowLevel;
         switch (nowLevel) {
             case 1:
-                fireTimes = 50;
+                fireTimes = 25;
                 break;
             case 2:
-                fireTimes = 100;
+                fireTimes = 50;
                 break;
             case 3:
-                fireTimes = 150;
+                fireTimes = 75;
                 break;
             default:
-                fireTimes = 150;
+                fireTimes = 100;
                 break;
         }
 	}
@@ -73,6 +74,7 @@ public class Fight_Damage : MonoBehaviour {
                         {
                             objectHealth.ObjectHealth = 0;
                         rayHit.transform.GetComponentInChildren<Renderer>().enabled = false;
+                        mandead.Play();
                     }
                     }
             }

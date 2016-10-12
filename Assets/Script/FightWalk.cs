@@ -14,6 +14,7 @@ public class FightWalk : MonoBehaviour
     //public Transform target;
     private NavMeshAgent navMeshAgent;
     GameObject target;
+    GameObject water;
     GameObject model1;
     public Transform[] points;
     private int destpoint = 0;
@@ -33,7 +34,11 @@ public class FightWalk : MonoBehaviour
     {
         model = this.gameObject;
         target = GameObject.Find("Fire Exit");
-        
+        water = GameObject.Find("Fire_Hydrant");
+        rtop = GameObject.Find("rtop");
+        ltop = GameObject.Find("ltop");
+        rdown = GameObject.Find("rdowm");
+        ldown = GameObject.Find("ldown");
     }
 
     void Start()
@@ -61,154 +66,23 @@ public class FightWalk : MonoBehaviour
         }
 
     }
-    
+
     void Update()
     {
         int alltype = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>().lv;
-
+        Debug.Log("LV:" + alltype);
         model.transform.rotation = Quaternion.Euler(0, 0, 0);
-        model.transform.position = new Vector3(model.transform.position.x, 0, model.transform.position.z);
 
 
         //Debug.Log (model.name + " : " + alltype);
-        switch (alltype)
+
+
+        if (isfire == 0)
         {
-
-            case 1:
-                if (navMeshAgent.remainingDistance < 6f)
-
-                    GotoNext();
-
-                break;
-
-            case 2:
-                float firedis = (fire.transform.position - model.transform.position).magnitude;
-
-                if (firedis <= 20)
-                {
-                    isfire = 1;
-                }
-                if (isfire == 1)
-                {
-
-                    if ((fire.transform.position.x - model.transform.position.x) >= 0)
-                    {
-                        if ((fire.transform.position.z - model.transform.position.z) >= 0)
-                        {
-                            model.transform.Translate(-4.0f, 0, -4.0f);
-                            //navMeshAgent.destination =ldown.transform.position;
-
-                        }
-                        else
-                        {
-                            model.transform.Translate(-4.0f, 0, 4.0f);
-                            //navMeshAgent.destination =ltop.transform.position;
-                        }
-                    }
-
-                    if ((fire.transform.position.x - model.transform.position.x) < 0)
-                    {
-                        if ((fire.transform.position.z - model.transform.position.z) >= 0)
-                        {
-                            model.transform.Translate(4.0f, 0, -4.0f);
-                            //navMeshAgent.destination =rtop.transform.position;
-                        }
-                        else
-                        {
-                            model.transform.Translate(4.0f, 0, 4.0f);
-                            //navMeshAgent.destination =rdown.transform.position;
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    if (navMeshAgent.remainingDistance < 6f)
-                        GotoNext();
-                }
-
-                break;
-            default:
-           // case 3:
-                float firedist = (fire.transform.position - model.transform.position).magnitude;
-                if (firedist <= 20)
-                {
-                    isfire = 1;
-                }
-
-                if (isfire == 1)
-                {
-
-
-                    if ((fire.transform.position.x - model.transform.position.x) >= 0)
-                    {
-
-                        directiontop = -1;
-
-                    }
-                    else
-                    {
-                        directiontop = 1;
-
-                    }
-
-
-
-
-
-
-                    if (direction == 1)
-                    {
-                        model.transform.Translate(directiontop * 0.5f, 0, 0);
-                        if (model.transform.position.x <= -48 || model.transform.position.x >= 48)
-                        {
-                            direction = 2;
-                        }
-                    }
-                    if (direction == 2)
-                    {
-                        model.transform.Translate(0, 0, 0.5f);
-                        if (model.transform.position.z >= 48)
-                        {
-                            direction = 3;
-                        }
-                    }
-                    if (direction == 3)
-                    {
-                        navMeshAgent.destination = target.transform.position;
-                        //model.transform.Translate (-directiontop*0.5f, 0, 0);
-                    }
-
-
-                }
-
-                else
-                {
-                    if (navMeshAgent.remainingDistance < 6f)
-                        GotoNext();
-                }
-
-
-                break;
-
-
-
-
-
-
-
-
-
-
-
-            /*default:
-                if (navMeshAgent.remainingDistance < 6f)
-                    GotoNext();
-
-                break;*/
-
+            if (navMeshAgent.remainingDistance < 8f)
+                GotoNext();
         }
+
     }
 
     void GotoNext()
@@ -235,6 +109,119 @@ public class FightWalk : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider onfire)
+    {
+        if (onfire.gameObject.tag == "Fire")
+        {
+            isfire = 1;
+            int alltype = GameObject.Find("Main Camera").GetComponent<Fight_Objectload>().lv;
+
+            switch (alltype)
+            {
+                case 1://不躲火
+                    Update();
+                    break;
+
+                case 2://躲到第一個火反方向的角落
+
+                    if (isfire == 1)
+                    {
+
+                        if ((onfire.transform.position.x - model.transform.position.x) >= 0)
+                        {
+                            if ((onfire.transform.position.z - model.transform.position.z) >= 0)
+                            {
+                                //model.transform.Translate(-4.0f, 0, -4.0f);
+                                navMeshAgent.destination = ldown.transform.position;
+
+                            }
+                            else
+                            {
+                                //model.transform.Translate(-4.0f, 0, 4.0f);
+                                navMeshAgent.destination = ltop.transform.position;
+                            }
+                        }
+
+                        if ((onfire.transform.position.x - model.transform.position.x) < 0)
+                        {
+                            if ((onfire.transform.position.z - model.transform.position.z) >= 0)
+                            {
+                                //model.transform.Translate(4.0f, 0, -4.0f);
+                                navMeshAgent.destination = rtop.transform.position;
+                            }
+                            else
+                            {
+                                //model.transform.Translate(4.0f, 0, 4.0f);
+                                navMeshAgent.destination = rdown.transform.position;
+                            }
+                        }
+
+
+                    }
+
+
+                    break;
+
+                case 3://不怕火直奔出口
+                    if (isfire == 1)
+                    {
+                        navMeshAgent.destination = target.transform.position;
+                    }
+                    break;
+
+
+
+                default://扭來扭去躲火到出口
+
+                    if (isfire == 1)
+                    {
+
+
+                        if ((onfire.transform.position.x - model.transform.position.x) >= 0)
+                        {
+
+                            directiontop = -1;
+
+                        }
+                        else
+                        {
+                            directiontop = 1;
+
+                        }
+
+
+                        if (direction == 1)
+                        {
+                            model.transform.Translate(directiontop * 0.5f, 0, 0);
+                            if (model.transform.position.x <= -48 || model.transform.position.x >= 48)
+                            {
+                                direction = 2;
+                            }
+                        }
+                        if (direction == 2)
+                        {
+                            model.transform.Translate(0, 0, 0.5f);
+                            if (model.transform.position.z >= 48)
+                            {
+                                direction = 3;
+                            }
+                        }
+
+                        navMeshAgent.destination = target.transform.position;
+                        //model.transform.Translate (-directiontop*0.5f, 0, 0);
+
+
+                    }
+
+
+
+
+                    break;
+
+            }
+
+
+        }
+    }
 
 }
-
