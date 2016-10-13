@@ -1,4 +1,4 @@
-## Firegame ##
+﻿## Firegame ##
 
 ### **關於Firegame** ###
 
@@ -29,3 +29,4 @@
 ### **聯絡方法** ###
 - 李明峯 krok1029@gmail.com
 - 謝秉修 j1152776@gmail.com
+- 邱迪凱 
