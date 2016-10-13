@@ -1,8 +1,20 @@
 ﻿## Firegame ##
+ 
+**遊戲畫面**
 
-### **關於Firegame** ###
+遊戲開始
+![start](http://i.imgur.com/EgLZ3BR.png)
+遊戲中
+![invest](http://i.imgur.com/DdUJ8Hf.png)
+戰鬥中
+![fight](http://i.imgur.com/HbbIbzT.png)
 
-使用 **Unity 5.3.0版本** 開發，是一款3D模擬策略類型遊戲，模擬火場逃生之情形
+**遊戲影片**
+https://youtu.be/YRXwStiVrIw
+
+**開發環境**
+
+使用 **Unity 5.3.0版本** 以及 **Pasrse** 開發，是一款3D模擬策略類型遊戲，模擬火場逃生之情形
 
 ### **遊戲方法** ###
 
